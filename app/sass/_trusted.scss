@@ -1,0 +1,35 @@
+.trusted {
+  padding: 20px 0;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      margin: 0 70px 20px;
+    }
+    a {
+      position: relative;
+      display: inline-block;
+      @include transition(transform, .2, 0);
+
+      &:hover {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
+@media (min-width: $tablet-portrait) {
+
+}
+@media (min-width: $desktop) {
+
+}
+
+

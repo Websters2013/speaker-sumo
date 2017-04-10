@@ -35,6 +35,13 @@
     line-height: 14px;
     @include asap-bold();
   }
+  &_4 {
+    min-width: 150px;
+    height: 54px;
+    @include asap-bold();
+    font-size: 18px;
+    line-height: 18px;
+  }
 
 }
 

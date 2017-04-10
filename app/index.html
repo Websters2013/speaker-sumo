@@ -72,6 +72,7 @@
                         </li>
                         <li class="menu-item menu-item-has-children">
                             <a href="#" class="menu-item-header">MAP</a>
+                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
                             <ul class="sub-menu">
                                 <li class="menu-item">
                                     <a href="#">Sponsors</a>
@@ -124,14 +125,16 @@
         <!-- /site__header -->
 
         <!-- site__content -->
-        <div class="site__content" style="height: 3000px">
+        <main class="site__content">
 
             <!-- hero -->
             <div class="hero">
 
-                <img src="pic/hero-desktop.jpg"
-                     srcset="pic/hero-desktop.jpg"
-                     sizes="(min-width: 1024px)">
+                <picture>
+                    <source srcset="pic/hero-desktop.jpg"  media="(min-width: 1024px)" />
+                    <source srcset="pic/hero-tablet.jpg"  media="(min-width: 768px)" />
+                    <img src="pic/hero-mobile.jpg" alt="" />
+                </picture>
 
                 <!-- hero__layout -->
                 <div class="hero__layout">
@@ -148,23 +151,820 @@
                     </div>
                     <!-- /hero__content -->
 
-                    <!--<picture>-->
-
-                        <!--<source media="(min-width: 1024px)" srcset="pic/hero-desktop.jpg">-->
-
-                        <!--<source media="(max-width: 40em)" srcset="">-->
-
-                        <!--<img src="pic/hero-desktop.jpg" alt="Space Needle">-->
-
-                    <!--</picture>-->
-
                 </div>
                 <!-- /hero__layout -->
 
             </div>
             <!-- /hero -->
 
-        </div>
+            <!--trusted-->
+            <div class="trusted">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">TRUSTED BY</h3>
+                    <!--/site__title-->
+
+                    <!--trusted__list-->
+                    <ul class="trusted__list">
+
+                        <li>
+                            <a href="#"><img src="pic/trusted-pic_1.png" alt="trusted"></a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="pic/trusted-pic_2.png" alt="trusted"></a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="pic/trusted-pic_3.png" alt="trusted"></a>
+                        </li>
+
+                        <li>
+                            <a href="#"><img src="pic/trusted-pic_2.png" alt="trusted"></a>
+                        </li>
+
+                    </ul>
+                    <!--/trusted__list-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/trusted-->
+
+            <!--call-to-action-->
+            <div class="call-to-action" style="background-image: url('pic/call-to-action_bg.jpg')">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <div class="site__title site__title_white">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        CALL TO ACTION
+                    </div>
+                    <!--/site__title-->
+
+                    <!--btn-->
+                    <a href="#" class="btn btn_3">Hire me for your event</a>
+                    <!--/btn-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/call-to-action-->
+
+            <!--presentation-->
+            <div class="presentation">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title site__title_white">
+                        <i class="fa fa-asterisk" aria-hidden="true"></i>
+                        PRESENTATION IDEAS
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--presentation__list-->
+                    <div class="presentation__list">
+
+                        <!--presentation__item-->
+                        <div class="presentation__item">
+
+                            <!--presentation__item-title-->
+                            <div class="presentation__item-title">TOPIC 1</div>
+                            <!--/presentation__item-title-->
+
+                            <!--presentation__item-text-->
+                            <p class="presentation__item-text">
+                                Learn lorem ipsum
+                            </p>
+                            <!--/presentation__item-text-->
+
+                            <!--presentation__item-list-->
+                            <ul class="presentation__item-list">
+
+                                <li>
+                                    Feature List item one
+                                </li>
+
+                                <li>
+                                    Another feature item
+                                </li>
+
+                                <li>
+                                    The third list item is even more
+                                </li>
+
+                                <li>
+                                    The 4th list item is awesome
+                                </li>
+
+                                <li>
+                                    And the list goes on
+                                </li>
+
+                            </ul>
+                            <!--/presentation__item-list-->
+
+                            <!--btn-->
+                            <a href="#" class="btn btn_2">HOST IT NOW</a>
+                            <!--/btn-->
+
+                        </div>
+                        <!--/presentation__item-->
+
+                        <!--presentation__item-->
+                        <div class="presentation__item">
+
+                            <!--presentation__item-title-->
+                            <div class="presentation__item-title">TOPIC 2</div>
+                            <!--/presentation__item-title-->
+
+                            <!--presentation__item-text-->
+                            <p class="presentation__item-text">
+                                Dolore sit amet
+                            </p>
+                            <!--/presentation__item-text-->
+
+                            <!--presentation__item-list-->
+                            <ul class="presentation__item-list">
+
+                                <li>
+                                    Mouse hover state
+                                </li>
+
+                                <li>
+                                    Another feature item
+                                </li>
+
+                                <li>
+                                    The third list item is even more
+                                </li>
+
+                                <li>
+                                    The 4th list item is awesome
+                                </li>
+
+                                <li>
+                                    And the list goes on
+                                </li>
+
+                            </ul>
+                            <!--/presentation__item-list-->
+
+                            <!--btn-->
+                            <a href="#" class="btn btn_2">HOST IT NOW</a>
+                            <!--/btn-->
+
+                        </div>
+                        <!--/presentation__item-->
+
+                        <!--presentation__item-->
+                        <div class="presentation__item">
+
+                            <!--presentation__item-title-->
+                            <div class="presentation__item-title">TOPIC 3</div>
+                            <!--/presentation__item-title-->
+
+                            <!--presentation__item-text-->
+                            <p class="presentation__item-text">
+                                Lorem ipsum dolor sit amet
+                            </p>
+                            <!--/presentation__item-text-->
+
+                            <!--presentation__item-list-->
+                            <ul class="presentation__item-list">
+
+                                <li>
+                                    Feature List item one
+                                </li>
+
+                                <li>
+                                    Another feature item
+                                </li>
+
+                                <li>
+                                    The third list item is even more
+                                </li>
+
+                                <li>
+                                    The 4th list item is awesome
+                                </li>
+
+                                <li>
+                                    And the list goes on
+                                </li>
+
+                            </ul>
+                            <!--/presentation__item-list-->
+
+                            <!--btn-->
+                            <a href="#" class="btn btn_2">HOST IT NOW</a>
+                            <!--/btn-->
+
+                        </div>
+                        <!--/presentation__item-->
+
+                    </div>
+                    <!--/presentation__list-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/presentation-->
+
+            <!--books-->
+            <div class="books">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        My Books
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--books__list-->
+                    <div class="books__list">
+
+                        <!--books__item-->
+                        <a href="#" class="books__item" style="background-image: url('pic/books-pic_1.jpg')">
+
+                            <!--books__item-more-->
+                            <span class="books__item-more">LEARN MORE</span>
+                            <!--/books__item-more-->
+
+                        </a>
+                        <!--/books__item-->
+
+                        <!--books__item-->
+                        <a href="#" class="books__item" style="background-image: url('pic/books-pic_2.jpg')">
+
+                            <!--books__item-more-->
+                            <span class="books__item-more">LEARN MORE</span>
+                            <!--/books__item-more-->
+
+                        </a>
+                        <!--/books__item-->
+
+                        <!--books__item-->
+                        <a href="#" class="books__item" style="background-image: url('pic/books-pic_3.jpg')">
+
+                            <!--books__item-more-->
+                            <span class="books__item-more">LEARN MORE</span>
+                            <!--/books__item-more-->
+
+                        </a>
+                        <!--/books__item-->
+
+                        <!--books__item-->
+                        <a href="#" class="books__item" style="background-image: url('pic/books-pic_4.jpg')">
+
+                            <!--books__item-more-->
+                            <span class="books__item-more">LEARN MORE</span>
+                            <!--/books__item-more-->
+
+                        </a>
+                        <!--/books__item-->
+
+                    </div>
+                    <!--/books__list-->
+
+                    <!--btn-->
+                    <a href="#" class="btn btn_4">VIEW ALL MY BOOKS</a>
+                    <!--/btn-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/books-->
+
+            <!--posts-->
+            <div class="posts">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        last blog posts
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--posts__list-->
+                    <div class="posts__list">
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/blog-post-pic_1.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                Event in Paris
+                                lorem ipsum
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/blog-post-pic_2.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER event
+                                TITLE ON THREE
+                                ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/blog-post-pic_3.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER event
+                                TITLE ON 2 ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                    </div>
+                    <!--/posts__list-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/posts-->
+
+            <!--posts-->
+            <div class="posts">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                        SEE ME IN ACTION
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--posts__list-->
+                    <div class="posts__list">
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/action-pic_1.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                Event in Paris
+                                lorem ipsum
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/action-pic_2.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER event
+                                TITLE ON THREE
+                                ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/action-pic_3.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER event
+                                TITLE ON 2 ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                    </div>
+                    <!--/posts__list-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/posts-->
+
+            <!--posts-->
+            <div class="posts">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        past events
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--posts__list-->
+                    <div class="posts__list">
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/events-pic_1.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                Event in london
+                                lorem ipsum
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/events-pic_2.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER past
+                                event TITLE ON
+                                THREE ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                        <!--posts__item-->
+                        <a href="#" class="posts__item" style="background-image: url('pic/events-pic_3.jpg')">
+
+                            <!--posts__item-title-->
+                            <div class="posts__item-title">
+                                ANOTHER past
+                                event ON 2 ROWS
+                            </div>
+                            <!--/posts__item-title-->
+
+                            <!--posts__item-more-->
+                            <div class="posts__item-more">LEARN MORE</div>
+                            <!--/posts__item-more-->
+
+                        </a>
+                        <!--/posts__item-->
+
+                    </div>
+                    <!--/posts__list-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/posts-->
+
+            <!--connect-->
+            <div class="connect">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        let’s connect!
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--site__subtitle-text-->
+                    <p class="site__subtitle-text">
+                        Nullam in dui mauris. Vivamus hendrerit arcu sed erat.
+                    </p>
+                    <!--/site__subtitle-text-->
+
+                    <!--social-->
+                    <div class="social">
+
+                        <a href="#">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                    <!--/social-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/connect-->
+
+            <!--testimonials-->
+            <div class="testimonials">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        testimonials
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--site__subtitle-text-->
+                    <p class="site__subtitle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies condimentum tristique. Sed quis urna velit. Aliquam suscipit dapibus molestie. Nam auctor, risus et
+                        varius dapibus, lorem leo dapibus nulla, id elementum tellus purus vitae augue.
+                    </p>
+                    <!--/site__subtitle-text-->
+
+                    <!--testimonials__list-->
+                    <div class="testimonials__list">
+
+                        <!--testimonials__item-->
+                        <div class="testimonials__item">
+
+                            <!--testimonials__item-pic-->
+                            <div class="testimonials__item-pic" style="background-image: url('pic/testimonial-pic_1.jpg')"></div>
+                            <!--/testimonials__item-pic-->
+
+                            <!--testimonials__item-inner-->
+                            <div class="testimonials__item-inner">
+
+                                <!--testimonials__item-title-->
+                                <span class="testimonials__item-title">JANE DOE</span>
+                                <!--/testimonials__item-title-->
+
+                                <!--testimonials__item-text-->
+                                <p class="testimonials__item-text">
+                                    Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit.
+                                </p>
+                                <!--/testimonials__item-text-->
+
+                            </div>
+                            <!--/testimonials__item-inner-->
+
+                        </div>
+                        <!--/testimonials__item-->
+
+                        <!--testimonials__item-->
+                        <div class="testimonials__item">
+
+                            <!--testimonials__item-inner-->
+                            <div class="testimonials__item-inner">
+
+                                <!--testimonials__item-title-->
+                                <span class="testimonials__item-title">JAKE DOE</span>
+                                <!--/testimonials__item-title-->
+
+                                <!--testimonials__item-text-->
+                                <p class="testimonials__item-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Vestibulum felis ex, porttitor non quam quis, porta tincidunt sem. Sed id
+                                    elementum neque
+                                </p>
+                                <!--/testimonials__item-text-->
+
+                            </div>
+                            <!--/testimonials__item-inner-->
+
+                        </div>
+                        <!--/testimonials__item-->
+
+                        <!--testimonials__item-->
+                        <div class="testimonials__item">
+
+                            <!--testimonials__item-inner-->
+                            <div class="testimonials__item-inner">
+
+                                <!--testimonials__item-title-->
+                                <span class="testimonials__item-title">JOE DOE</span>
+                                <!--/testimonials__item-title-->
+
+                                <!--testimonials__item-text-->
+                                <p class="testimonials__item-text">
+                                    Donec a iaculis ante. Fusce vitae libero efficitur, ornare enim ut, venenatis augue.
+                                    Integer vitae ipsum sed quam pharetra efficitur. Phasellus ultricies mauris.
+                                    Quisque ac quam eros. Etiam dictum eleifend augue, varius neque.
+                                </p>
+                                <!--/testimonials__item-text-->
+
+                            </div>
+                            <!--/testimonials__item-inner-->
+
+                        </div>
+                        <!--/testimonials__item-->
+
+                        <!--testimonials__item-->
+                        <div class="testimonials__item">
+
+                            <!--testimonials__item-inner-->
+                            <div class="testimonials__item-inner">
+
+                                <!--testimonials__item-title-->
+                                <span class="testimonials__item-title">JOHN DOE</span>
+                                <!--/testimonials__item-title-->
+
+                                <!--testimonials__item-text-->
+                                <p class="testimonials__item-text">
+                                    Lorem ipsum dolor sit amet, cons
+                                    adipiscing elit.
+                                </p>
+                                <!--/testimonials__item-text-->
+
+                            </div>
+                            <!--/testimonials__item-inner-->
+
+                            <!--testimonials__item-pic-->
+                            <div class="testimonials__item-pic" style="background-image: url('pic/testimonial-pic_2.jpg')"></div>
+                            <!--/testimonials__item-pic-->
+
+                        </div>
+                        <!--/testimonials__item-->
+
+                    </div>
+                    <!--/testimonials__list-->
+
+                    <!--btn-->
+                    <a href="#" class="btn btn_4">LOAD MORE</a>
+                    <!--/btn-->
+
+                    <!--btn-->
+                    <a href="#" class="btn btn_4">VIEW ALL</a>
+                    <!--/btn-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/testimonials-->
+
+            <!--contact-->
+            <div class="contact">
+
+                <!--site__centered-->
+                <div class="site__centered">
+
+                    <!--site__title-->
+                    <h3 class="site__title">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        contact
+                    </h3>
+                    <!--/site__title-->
+
+                    <!--site__subtitle-text-->
+                    <p class="site__subtitle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <!--/site__subtitle-text-->
+
+                    <!--contact__form-->
+                    <form action="#" class="contact__form">
+
+                        <fieldset>
+
+                            <input name="name" type="text" required placeholder="Name">
+                            <input name="email" type="email" required placeholder="Email">
+
+                        </fieldset>
+
+                        <fieldset>
+                            <textarea name="message" placeholder="Message"></textarea>
+                        </fieldset>
+
+                        <!--contact__form-captcha-->
+                        <div class="contact__form-captcha">
+                            <img src="pic/captcha-pic.jpg" alt="captcha">
+                        </div>
+                        <!--/contact__form-captcha-->
+
+                        <!--btn-->
+                        <button type="submit" class="btn">send</button>
+                        <!--/btn-->
+
+                    </form>
+                    <!--/contact__form-->
+
+                    <!--contact__info-->
+                    <div class="contact__info">
+
+                        <!--contact__info-col-->
+                        <div class="contact__info-col">
+
+                            <!--contact__info-title-->
+                            <span class="contact__info-title"></span>
+                            <!--/contact__info-title-->
+
+                            <address>Street Address
+                                No.16, 50015
+                                Barcelona, Spain</address>
+
+                        </div>
+                        <!--/contact__info-col-->
+
+                        <!--contact__info-col-->
+                        <div class="contact__info-col">
+
+                            <!--contact__info-title-->
+                            <span class="contact__info-title"></span>
+                            <!--/contact__info-title-->
+
+                            <ul>
+                                <li><a href="tel:+34889896678">+34 889 896 678</a></li>
+                                <li><a href="tel:+34445996873">+34 445 996 873</a></li>
+                            </ul>
+
+                        </div>
+                        <!--/contact__info-col-->
+
+                    </div>
+                    <!--/contact__info-->
+
+                </div>
+                <!--/site__centered-->
+
+            </div>
+            <!--/contact-->
+
+        </main>
         <!-- /site__content -->
 
         <!-- site__footer -->

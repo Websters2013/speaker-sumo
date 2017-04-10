@@ -51,3 +51,9 @@
   top: 50%;
   transform: translateY( -50% );
 }
+
+//transition
+@mixin transition( $property, $duration, $delay ) {
+  -webkit-transition: $property $duration+s linear $delay+s;
+  transition: $property $duration+s linear $delay+s;
+}
