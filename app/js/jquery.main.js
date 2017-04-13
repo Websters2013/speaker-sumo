@@ -74,10 +74,13 @@
                     autoplay: false,
                     speed: 500,
                     effect: 'slide',
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     loop: false,
                     prevButton: _booksPrev,
-                    nextButton: _booksNext
+                    nextButton: _booksNext,
+                    768: {
+                        slidesPerView: 1
+                    }
                 } );
 
                 _blog = new Swiper ( _blogSlider, {

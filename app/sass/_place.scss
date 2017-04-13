@@ -97,28 +97,28 @@
 @media (min-width: $tablet-portrait) {
 
   .place {
+    padding: 79px 85px 90px;
+    background-color: #f98f01;
 
     &__title{
-      margin-bottom: 27px;
-      padding-right: 40px;
+      margin-bottom: -1px;
+      font-size: 27px;
+      letter-spacing: -2px;
+    }
+
+    &__subtitle{
+      margin-bottom: 82px;
+      font-size: 14px;
+      font-style: italic;
     }
 
     &__map{
-      height: 768px;
-
-      &:before, &:after{
-        transform: rotate(-1.1deg);
-        -webkit-transform: rotate(-1.1deg);
-      }
-
+      height: 643px;
     }
 
     &__popup{
-      right: 36px;
-      bottom: 30px;
-      left: 39px;
-      padding: 54px 31px 48px 63px;
-      box-shadow: 0 0 50px rgba(0,0,0,.1);
+      padding: 59px 54px 48px;
+      background-color: #fff;
     }
 
     &__list{
@@ -129,17 +129,11 @@
     }
 
     &__labels{
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      align-items: stretch;
-      max-height: 145px;
-      padding-right: 29px;
+      padding: 0 35px 0 36px;
     }
 
     .label{
-      width: 47%;
-      margin: 0 0 11px;
+      padding: 14px 0 9px;
     }
 
   }
@@ -153,12 +147,6 @@
 
     &__map{
       height: 820px;
-
-      &:before, &:after{
-        transform: rotate(-1deg);
-        -webkit-transform: rotate(-1deg);
-      }
-
     }
 
     &__title{

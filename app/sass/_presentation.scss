@@ -23,6 +23,11 @@
 
   }
 
+  &__list {
+    max-width: 302px;
+    margin: 0 auto;
+  }
+
   &__item {
     width: 32%;
     height: 436px;
@@ -133,6 +138,40 @@
 }
 
 @media (min-width: $tablet-portrait) {
+
+  .presentation {
+    padding: 51px 9px 97px;
+
+    &__title{
+      font-size: 24px;
+
+      i{
+        margin-bottom: 15px;
+      }
+
+    }
+
+    &__list {
+      max-width: 400px;
+    }
+
+    &__item-list{
+      max-width: 248px;
+      margin: 0 auto 37px;
+    }
+
+    &__button-prev:before,
+    &__button-next:before{
+      width: 9px;
+      height: 9px;
+    }
+
+    &__button-next:before{
+      left: -3px;
+    }
+
+  }
+
 
 }
 

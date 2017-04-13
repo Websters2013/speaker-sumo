@@ -26,9 +26,31 @@
 
 @media (min-width: $tablet-portrait) {
 
+  .call-to-action {
+    height: 303px;
+    padding: 53px 17px 39px;
+
+    &__title{
+      margin-bottom: 38px;
+      font-size: 24px;
+
+      i{
+        margin-bottom: 12px;
+      }
+
+    }
+
+  }
+
 }
 
 @media (min-width: $desktop) {
+
+  .call-to-action {
+    height: 254px;
+    padding-top: 43px;
+
+  }
 
 }
 

@@ -45,7 +45,8 @@
 
   &__content {
     position: relative;
-    max-width: 1050px;
+    max-width: 619px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
@@ -70,10 +71,29 @@
       display: none;
     }
 
+    &__layout {
+      padding-bottom: 188px;
+    }
+
+    &__content {
+      padding: 0;
+      text-align: left;
+
+      p {
+        max-width: 466px;
+        margin: 0 0 39px;
+        font-size: 18px;
+        letter-spacing: .7px;
+        line-height: 22px;
+      }
+
+    }
+
     &__title {
+      max-width: 466px;
       margin: 0 0 22px;
       font-size: 54px;
-      line-height: 60px;
+      line-height: 62px;
     }
 
   }
@@ -82,7 +102,23 @@
 
 @media (min-width: $desktop) {
 
+  .hero{
 
+    &__title {
+      max-width: 482px;
+      padding-top: 24px;
+      border-top: 6px solid #f98f01;
+    }
+
+    &__layout {
+      padding-bottom: 137px;
+    }
+
+    &__content{
+      max-width: 924px;
+    }
+
+  }
 
 }
 

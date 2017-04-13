@@ -24,8 +24,7 @@
   }
 
   &__subtitle{
-    max-width: 250px;
-    margin: 0 auto 66px;
+    margin-bottom: 66px;
     color: #fff;
     font-size: 16px;
     line-height: 24px;
@@ -36,6 +35,20 @@
 }
 
 @media (min-width: $tablet-portrait) {
+
+  .connect{
+    padding: 44px 0 62px;
+
+    &__title{
+      margin-bottom: 43px;
+    }
+
+    &__subtitle{
+      font-size: 18px;
+      letter-spacing: .9px;
+    }
+
+  }
 
 }
 

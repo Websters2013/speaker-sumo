@@ -132,6 +132,55 @@
 
 @media (min-width: $tablet-portrait) {
 
+  .blog{
+    padding: 48px 16px 37px;
+
+    &__title{
+      margin-bottom: 45px;
+      font-size: 24px;
+
+      i{
+        font-size: 32px;
+      }
+
+    }
+
+    &__list {
+      width: 352px;
+      margin-bottom: 57px;
+    }
+
+    &__item{
+      height: 381px;
+    }
+
+    &__item-title{
+      left: 33px;
+      bottom: 35px;
+      font-size: 31px;
+      line-height: 30px;
+    }
+
+    &__button-prev,
+    &__button-next{
+      width: 22px;
+      height: 103px;
+      transform: translateY(-49%);
+
+      &:before {
+        width: 9px;
+        height: 9px;
+        left: 8px;
+      }
+
+    }
+
+    &__button-next:before{
+      left: 3px;
+    }
+
+  }
+
 }
 
 @media (min-width: $desktop) {

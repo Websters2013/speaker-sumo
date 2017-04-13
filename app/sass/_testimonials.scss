@@ -77,6 +77,51 @@
 @media (min-width: $tablet-portrait) {
 
   .testimonials {
+    padding: 53px 0 33px;
+
+    &__title{
+      margin-bottom: 44px;
+    }
+
+    &__list {
+      max-width: 591px;
+    }
+
+    &__item{
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      margin-bottom: 42px;
+
+      &_1{
+
+        .testimonials__item-pic{
+          order: 2;
+        }
+
+        .testimonials__item-inner{
+          order: 1;
+        }
+
+      }
+
+    }
+
+    &__item-pic{
+      width: 50%;
+
+      & + .testimonials__item-inner{
+        width: 50%;
+        margin: 0;
+      }
+
+    }
+
+    &__item-inner{
+      width: 75%;
+      margin: 0 auto;
+      padding-bottom: 25px;
+    }
 
   }
 

@@ -25,6 +25,12 @@
 @media (min-width: $tablet-portrait) {
 
   .schedule {
+    height: 601px;
+    padding-top: 47px;
+
+    &__title {
+      font-size: 24px;
+    }
 
   }
 
