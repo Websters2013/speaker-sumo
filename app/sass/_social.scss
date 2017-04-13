@@ -1,0 +1,53 @@
+.social {
+  text-align: center;
+
+  &__item{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0 14px 25px;
+    width: 67px;
+    height: 67px;
+    color: #000;
+    background-color: #f98f01;
+    font-size: 30px;
+    border-radius: 50%;
+    -webkit-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .social {
+
+    &__item{
+      margin: 0 18px 30px;
+      width: 80px;
+      height: 80px;
+      font-size: 36px;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .social {
+
+  }
+
+}
+
+

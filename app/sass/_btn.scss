@@ -22,11 +22,14 @@
   &_2 {
     min-width: 150px;
     height: 54px;
+    padding: 0 13px;
     @include asap-bold();
     font-size: 18px;
     line-height: 18px;
+    letter-spacing: 1px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
   }
+
   &_3 {
     height: 42px;
     min-width: 120px;
@@ -35,12 +38,28 @@
     line-height: 14px;
     @include asap-bold();
   }
+
   &_4 {
-    min-width: 150px;
-    height: 54px;
-    @include asap-bold();
+    height: 52px;
+    width: 100%;
+    min-width: 120px;
+    padding: 0 10px;
     font-size: 18px;
     line-height: 18px;
+    @include asap-bold();
+  }
+
+  &_5 {
+    width: 100%;
+    max-width: 294px;
+    height: 45px;
+    margin: 0 auto;
+    color: #fff;
+    @include asap-bold();
+    background-color: #ccc;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 1px;
   }
 
 }

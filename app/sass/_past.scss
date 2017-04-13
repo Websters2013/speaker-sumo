@@ -1,25 +1,18 @@
-.posts {
-  padding: 34px 16px 49px;
-  background-color: #e6e6e6;
+.past {
+  padding: 28px 16px 54px;
   text-align: center;
 
   &__layout{
     position: relative;
   }
 
-  &__list{
-    width: 294px;
-    margin: 0 auto 49px;
-  }
-
   &__title {
-    margin-bottom: 27px;
-    font-size: 25px;
+    margin-bottom: 41px;
+    font-size: 24px;
     color: $main-black-color;
     text-align: center;
     text-transform: uppercase;
     @include oswald-bold();
-    letter-spacing: -1px;
 
     i {
       display: block;
@@ -30,16 +23,21 @@
 
   }
 
-  &__item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 320px;
+  &__list{
+    width: 294px;
+    margin: 0 auto 53px;
+  }
+
+  &__item {
     overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 310px;
+    box-shadow: 0 5px 22.56px 1.44px rgba(0, 0, 0, 0);
 
     img{
       display: block;
+      width: 100%;
     }
 
     &:before {
@@ -55,6 +53,10 @@
 
   }
 
+  &__item-more {
+    display: none;
+  }
+
   &__item-title {
     position: absolute;
     left: 25px;
@@ -65,26 +67,8 @@
     font-size: 20px;
     line-height: 24px;
     text-transform: uppercase;
+    text-align: left;
     z-index: 2;
-  }
-
-  &__item-more {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 35px;
-    height: 30px;
-    background-color: #7a43c6;
-    color: #fff;
-    opacity: 0;
-    transition: opacity .3s ease;
-    -webkit-transition: opacity .3s ease;
   }
 
   &__button-prev,
@@ -94,8 +78,8 @@
     width: 15px;
     height: 80px;
     background-color: rgba(0,0,0,.24);
-    -webkit-transform: translateY(-53%);
-    transform: translateY(-53%);
+    -webkit-transform: translateY(-56%);
+    transform: translateY(-56%);
     z-index: 2;
 
     &:before{
@@ -135,4 +119,40 @@
 
 @media (min-width: $desktop) {
 
+  .books {
+
+    &__item {
+      @include transition( box-shadow, .2, 0 );
+
+      &:hover {
+        box-shadow: 0 5px 22.56px 1.44px rgba(0, 0, 0, 0.29);
+
+        .books__item-more {
+          -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+        }
+      }
+
+    }
+
+    &__item-more {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 5px 5px;
+      background: $main-yellow-color_2;
+      font-size: 16px;
+      color: $main-black-color;
+      text-transform: uppercase;
+      @include asap-bold();
+      -webkit-transform: translate(100%, 100%);
+      transform: translate(100%, 100%);
+      @include transition( transform, .2, 0 );
+    }
+
+  }
+
 }
+
+

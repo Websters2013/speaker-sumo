@@ -1,9 +1,44 @@
 .connect {
+  padding: 37px 0 43px;
+  background-color: #000;
+
+  &__layout{
+    padding: 0 15px;
+  }
+
+  &__title{
+    margin-bottom: 58px;
+    font-size: 24px;
+    color: $main-white-color;
+    text-align: center;
+    text-transform: uppercase;
+    @include oswald-bold();
+
+    i {
+      display: block;
+      width: auto;
+      margin: 0 auto 16px;
+      font-size: 27px;
+    }
+
+  }
+
+  &__subtitle{
+    max-width: 250px;
+    margin: 0 auto 66px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: .3px;
+    text-align: center;
+  }
 
 }
+
 @media (min-width: $tablet-portrait) {
 
 }
+
 @media (min-width: $desktop) {
 
 }

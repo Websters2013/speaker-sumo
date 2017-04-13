@@ -1,17 +1,36 @@
 .presentation {
-  padding: 40px 0;
+  padding: 54px 9px 72px;
   background: $main-black-color;
 
-  &__list {
-    display: flex;
-    justify-content: center;
+  &__layout{
+    position: relative;
   }
+
+  &__title{
+    margin-bottom: 44px;
+    font-size: 18px;
+    color: $main-white-color;
+    text-align: center;
+    text-transform: uppercase;
+    @include oswald-bold();
+
+    i {
+      display: block;
+      width: auto;
+      margin: 0 auto 17px;
+      font-size: 27px;
+    }
+
+  }
+
   &__item {
     width: 32%;
-    padding: 20px 80px 40px;
+    height: 436px;
+    padding: 32px 20px 36px;
     margin: 0 0.2% 0.2%;
     background: $main-white-color;
     text-align: center;
+    overflow: hidden;
 
     &:first-child {
       margin-left: 0;
@@ -20,33 +39,42 @@
       margin-right: 0;
     }
   }
+
   &__item-title {
-    margin-bottom: 10px;
-    font-size: 50px;
+    margin-bottom: 17px;
+    font-size: 54px;
     line-height: 1;
+    letter-spacing: -3px;
     color: $main-black-color;
     text-transform: uppercase;
     @include oswald-bold();
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
+
   &__item-text {
     overflow: hidden;
-    height: 68px;
-    margin-bottom: 40px;
+    height: 70px;
+    margin-bottom: 6px;
     font-size: 24px;
     line-height: 34px;
     color: $main-yellow-color_2;
     @include asap-bold();
   }
+
   &__item-list {
-    margin-bottom: 30px;
+    max-height: 130px;
+    margin-bottom: 37px;
     text-align: left;
     font-size: 16px;
     line-height: 26px;
     color: $main-black-color;
+    overflow: hidden;
 
     li {
       position: relative;
-      padding-left: 10px;
+      padding-left: 13px;
       
       &:after {
         position: absolute;
@@ -59,11 +87,55 @@
         content: '';
       }
     }
+
   }
+
+  &__button-prev,
+  &__button-next{
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 80px;
+    background-color: rgba(0,0,0,.24);
+    -webkit-transform: translateY(-28%);
+    transform: translateY(-28%);
+    z-index: 2;
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: 45%;
+      left: 6px;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+  }
+
+  &__button-prev{
+    left: 0;
+  }
+
+  &__button-next{
+    right: 0;
+
+    &:before{
+      left: 3px;
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+
+  }
+
 }
+
 @media (min-width: $tablet-portrait) {
 
 }
+
 @media (min-width: $desktop) {
 
 }

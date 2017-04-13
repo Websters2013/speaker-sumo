@@ -1,5 +1,5 @@
-.posts {
-  padding: 34px 16px 49px;
+.blog {
+  padding: 19px 16px 53px;
   background-color: #e6e6e6;
   text-align: center;
 
@@ -9,11 +9,11 @@
 
   &__list{
     width: 294px;
-    margin: 0 auto 49px;
+    margin: 0 auto 47px;
   }
 
   &__title {
-    margin-bottom: 27px;
+    margin-bottom: 33px;
     font-size: 25px;
     color: $main-black-color;
     text-align: center;
@@ -66,6 +66,7 @@
     line-height: 24px;
     text-transform: uppercase;
     z-index: 2;
+    text-align: left;
   }
 
   &__item-more {
@@ -94,8 +95,8 @@
     width: 15px;
     height: 80px;
     background-color: rgba(0,0,0,.24);
-    -webkit-transform: translateY(-53%);
-    transform: translateY(-53%);
+    -webkit-transform: translateY(-56%);
+    transform: translateY(-56%);
     z-index: 2;
 
     &:before{

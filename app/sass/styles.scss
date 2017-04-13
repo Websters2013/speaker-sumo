@@ -1,11 +1,26 @@
-@import "main";
+@import "colors";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "flexbox";
+@import "reset";
+@import "fonts/google-fonts";
+@import "site";
+@import "btn";
+@import "logo";
+
 @import "hero";
 
 @import "trusted";
 @import "testimonials";
+@import "blog";
+@import "schedule";
 @import "posts";
 @import "books";
+@import "past";
+@import "place";
 @import "connect";
+@import "social";
 @import "contact";
 @import "call-to-action";
 @import "presentation";

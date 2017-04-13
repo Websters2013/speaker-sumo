@@ -1,0 +1,40 @@
+.schedule {
+  height: 582px;
+  padding: 40px 15px;
+
+  &__title {
+    margin-bottom: 33px;
+    font-size: 25px;
+    color: $main-black-color;
+    text-align: center;
+    text-transform: uppercase;
+    @include oswald-bold();
+    letter-spacing: -1px;
+
+    i {
+      display: block;
+      width: auto;
+      margin: 0 auto 21px;
+      font-size: 30px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .schedule {
+
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .schedule {
+
+  }
+
+}
+
+
