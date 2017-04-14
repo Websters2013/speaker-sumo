@@ -10,6 +10,7 @@
   line-height: 26px;
   color: #000;
 
+
   &__header {
     position: fixed;
     width: 100%;
@@ -188,6 +189,77 @@
 
   }
 
+  &__form {
+
+    fieldset {
+      margin-bottom: 30px;
+
+      &> *:last-child {
+        margin-bottom: 0;
+      }
+    }
+    textarea,
+    input {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      padding: 0 23px;
+      height: 65px;
+      border: 1px solid transparent;
+      background: $main-white-color;
+      color: $main-black-color;
+      font-size: 16px;
+      @include asap-regular();
+
+      &::-webkit-input-placeholder {
+        color: $main-black-color;
+        @include transition( color, .2, 0 )
+      }
+      &::-moz-placeholder {
+        color: $main-black-color;
+        @include transition( color, .2, 0 )
+      }
+      &:-moz-placeholder {
+        color: $main-black-color;
+        @include transition( color, .2, 0 )
+      }
+
+      &:focus {
+
+        &::-webkit-input-placeholder {
+          color: transparent;
+        }
+        &::-moz-placeholder {
+          color: transparent;
+        }
+        &:-moz-placeholder {
+          color: transparent;
+        }
+      }
+    }
+    textarea {
+      padding: 20px 23px;
+      height: 141px;
+    }
+
+    .form-validation__error {
+      border-color: #ff0000;
+    }
+  }
+  &__form-captcha {
+    margin-bottom: 20px;
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+  }
+  &__form-submit {
+    position: relative;
+    width: 175px;
+    height: 65px;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: $phone-landscape) {
@@ -233,8 +305,30 @@
 
   .site {
 
-  }
+    &__form {
+      margin: 0 auto;
+      max-width: 579px;
 
+      fieldset {
+        margin-bottom: 26px;
+      }
+    }
+    &__form-double {
+      text-align: justify;
+      margin-bottom: -29px;
+
+      &:after {
+        display: inline-block;
+        width: 100%;
+        content: '';
+      }
+      input {
+        display: inline-block;
+        vertical-align: top;
+        width: 49%;
+      }
+    }
+  }
 }
 
 @media (min-width: $desktop) {
