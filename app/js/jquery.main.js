@@ -13,6 +13,11 @@
             new Menu( $(this) );
         } );
 
+        $.each( $( '.site__footer-menu' ), function() {
+            new SubMenu( $(this) );
+            new Menu( $(this) );
+        } );
+
         $.each( $( '.form-validation' ), function() {
             new FormValidation ( $( this ) )
         } );
