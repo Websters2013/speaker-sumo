@@ -1040,188 +1040,139 @@
         </div>
         <!-- /place -->
 
-        <!--media-->
-        <div class="media">
+        <!-- media-gallery -->
+        <section class="media-gallery" data-loaded-group="0" data-loaded-type="all">
 
-            <!--blog__title-->
-            <h3 class="blog__title">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-                last blog posts
-            </h3>
-            <!--/blog__title-->
+            <!-- site__title -->
+            <h2 class="media-gallery__title">
+                <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                MEDIA gallery
+            </h2>
 
-            <!--blog__layout-->
-            <div class="blog__layout">
+            <!-- media-gallery__switcher -->
+            <div class="media-gallery__switcher">
 
-                <!--blog__list-->
-                <div class="blog__list swiper-container">
+                <!-- media-gallery__check -->
+                <button class="media-gallery__check btn btn-6" data-type="photo">PHOTOS</button>
+                <!-- /media-gallery__check -->
 
-                    <!-- swiper-wrapper -->
-                    <div class="swiper-wrapper">
-
-                        <!--blog__item-->
-                        <a href="#" class="blog__item swiper-slide">
-
-                            <img src="pic/blog-post-pic_1.jpg" alt="img">
-
-                            <!--blog__item-title-->
-                            <div class="blog__item-title">
-                                Event in Paris
-                                lorem ipsum
-                            </div>
-                            <!--/blog__item-title-->
-
-                            <!--blog__item-more-->
-                            <div class="blog__item-more">LEARN MORE</div>
-                            <!--/blog__item-more-->
-
-                        </a>
-                        <!--/blog__item-->
-
-                        <!--blog__item-->
-                        <a href="#" class="blog__item swiper-slide">
-
-                            <img src="pic/blog-post-pic_2.jpg" alt="img">
-
-                            <!--blog__item-title-->
-                            <div class="blog__item-title">
-                                ANOTHER event
-                                TITLE ON THREE
-                                ROWS
-                            </div>
-                            <!--/blog__item-title-->
-
-                            <!--blog__item-more-->
-                            <div class="blog__item-more">LEARN MORE</div>
-                            <!--/blog__item-more-->
-
-                        </a>
-                        <!--/blog__item-->
-
-                        <!--blog__item-->
-                        <a href="#" class="blog__item swiper-slide">
-
-                            <img src="pic/blog-post-pic_3.jpg" alt="img">
-
-                            <!--blog__item-title-->
-                            <div class="blog__item-title">
-                                ANOTHER event
-                                TITLE ON 2 ROWS
-                            </div>
-                            <!--/blog__item-title-->
-
-                            <!--blog__item-more-->
-                            <div class="blog__item-more">LEARN MORE</div>
-                            <!--/blog__item-more-->
-
-                        </a>
-                        <!--/blog__item-->
-
-                    </div>
-                    <!-- /swiper-wrapper -->
-
-                </div>
-                <!--/blog__list-->
-
-                <div class="blog__button-prev"></div>
-                <div class="blog__button-next"></div>
+                <!-- media-gallery__check -->
+                <button class="media-gallery__check btn btn-6" data-type="video">VIDEOS</button>
+                <!-- /media-gallery__check -->
 
             </div>
-            <!--/blog__layout-->
+            <!-- /media-gallery__switcher -->
 
-            <!--btn-->
-            <a href="#" class="btn btn_5">VIEW ALL MY BOOKS</a>
-            <!--/btn-->
+            <!-- media-gallery__cover -->
+            <div class="media-gallery__cover">
 
-        </div>
-        <!--/media-->
+                <!-- media-gallery__wrap -->
+                <div class="media-gallery__wrap"></div>
+                <!-- /gallery__wrap -->
 
-        <!--contact-->
-        <div class="contact">
+            </div>
+            <!-- /media-gallery__cover -->
 
-            <!--site__centered-->
+            <!-- btn -->
+            <a href="php/gallery-content.php" class="btn btn-6 media-gallery__more">LOAD MORE</a>
+            <!-- /btn -->
+
+        </section>
+        <!-- /media-gallery -->
+
+        <!-- contact-us -->
+        <section class="contact-us">
+
+            <!-- site__centered -->
             <div class="site__centered">
 
-                <!--site__title-->
-                <h3 class="site__title">
+                <!-- contact-us__title -->
+                <h2 class="contact-us__title">
                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                    contact
-                </h3>
-                <!--/site__title-->
+                    CONTACT
+                </h2>
+                <!-- /contact-us__title -->
 
-                <!--site__subtitle-text-->
-                <p class="site__subtitle-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <!--/site__subtitle-text-->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 
-                <!--contact__form-->
-                <form action="#" class="contact__form">
+                <!-- contact-us__form -->
+                <div class="contact-us__form">
 
-                    <fieldset>
+                    <!-- site__form -->
+                    <form action="php/form.php" class="site__form form-validation" novalidate>
 
-                        <input name="name" type="text" required placeholder="Name">
-                        <input name="email" type="email" required placeholder="Email">
+                        <fieldset>
 
-                    </fieldset>
+                            <!-- site__form-double -->
+                            <div class="site__form-double">
 
-                    <fieldset>
-                        <textarea name="message" placeholder="Message"></textarea>
-                    </fieldset>
+                                <input type="text" placeholder="Name" name="name" required>
 
-                    <!--contact__form-captcha-->
-                    <div class="contact__form-captcha">
-                        <img src="pic/temp-003.jpg" alt="captcha">
-                    </div>
-                    <!--/contact__form-captcha-->
+                                <input type="email" placeholder="Email" name="email" required>
 
-                    <!--btn-->
-                    <button type="submit" class="btn">send</button>
-                    <!--/btn-->
+                            </div>
+                            <!-- /site__form-double -->
 
-                </form>
-                <!--/contact__form-->
+                            <textarea name="text" id="text" cols="30" rows="10" placeholder="Message" required></textarea>
 
-                <!--contact__info-->
-                <div class="contact__info">
+                        </fieldset>
 
-                    <!--contact__info-col-->
-                    <div class="contact__info-col">
+                        <!--site__form-captcha-->
+                        <div class="site__form-captcha">
 
-                        <!--contact__info-title-->
-                        <span class="contact__info-title"></span>
-                        <!--/contact__info-title-->
+                            <img src="pic/captcha.jpg" alt="captcha">
 
-                        <address>Street Address
-                            No.16, 50015
-                            Barcelona, Spain</address>
+                        </div>
+                        <!--/site__form-captcha-->
+                        
+                        <!-- site__form-submit -->
+                        <div class="site__form-submit">
 
-                    </div>
-                    <!--/contact__info-col-->
+                            <!-- btn -->
+                            <button type="submit" class="btn btn_2"><span>SEND</span></button>
+                            <!-- /btn -->
 
-                    <!--contact__info-col-->
-                    <div class="contact__info-col">
+                        </div>
+                        <!-- /site__form-submit -->
 
-                        <!--contact__info-title-->
-                        <span class="contact__info-title"></span>
-                        <!--/contact__info-title-->
-
-                        <ul>
-                            <li><a href="tel:+34889896678">+34 889 896 678</a></li>
-                            <li><a href="tel:+34445996873">+34 445 996 873</a></li>
-                        </ul>
-
-                    </div>
-                    <!--/contact__info-col-->
+                    </form>
+                    <!-- /site__form -->
 
                 </div>
-                <!--/contact__info-->
+                <!-- /contact-us__form -->
+
+                <!-- contact-us__address -->
+                <address class="contact-us__address">
+
+                    <dl>
+
+                        <dt>HEADQUARTERS</dt>
+                        <dd>Street Address</dd>
+                        <dd>No.16, 50015</dd>
+                        <dd>Barcelona, Spain</dd>
+
+                    </dl>
+
+                    <dl>
+
+                        <dt>PHONE</dt>
+                        <dd>
+                            <a href="tel:+34889896678">+34 889 896 678</a>
+                        </dd>
+                        <dd>
+                            <a href="tel:+34445996873">+34 445 996 873</a>
+                        </dd>
+
+                    </dl>
+
+                </address>
+                <!-- /contact-us__address -->
 
             </div>
-            <!--/site__centered-->
+            <!-- /site__centered -->
 
-        </div>
-        <!--/contact-->
+        </section>
+        <!-- /contact-us -->
 
         <!-- site__footer -->
         <footer class="site__footer"></footer>
@@ -1249,6 +1200,7 @@
     <!-- /popup -->
 
     <script src="js/vendors/jquery-2.2.1.min.js"></script>
+    <script src="js/vendors/isotope.pkgd.min.js"></script>
     <script src="js/vendors/swiper.jquery.min.js"></script>
     <script src="js/vendors/jquery.nicescroll.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAS6f0WBGDAH-5S1Lcp38IaZRgwFFRBAPM&callback=initMap" async defer></script>

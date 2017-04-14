@@ -13,6 +13,10 @@
             new Menu( $(this) );
         } );
 
+        $.each( $( '.form-validation' ), function() {
+            new FormValidation ( $( this ) )
+        } );
+
     } );
 
     var SubMenu = function (obj) {
@@ -445,6 +449,96 @@
             };
 
         _init();
+    };
+
+    var FormValidation = function( obj ) {
+
+        var _self = this,
+            _obj = obj,
+            _path = _obj.attr( 'action' ),
+            _inputs = _obj.find( '[required]' ),
+            _request = new XMLHttpRequest();
+
+        var _addEvents = function() {
+
+                _obj.on({
+
+                    'submit': function(){
+
+                        $.each( _inputs, function(){
+
+                            var curItem = $(this),
+                                curAttr = curItem.attr( 'type' );
+
+                            if ( curItem.val() == '' ) {
+                                curItem.addClass( 'form-validation__error' );
+                            }
+
+                            if ( curAttr == 'email' ){
+                                var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+                                if ( pattern.test( curItem.val() ) == false ){
+                                    curItem.addClass( 'form-validation__error' );
+                                }
+                            }
+
+                        } );
+
+                        if ( _obj.find( '.form-validation__error' ).length ){
+                            return false;
+                        } else {
+                            _ajaxRequest();
+                        }
+
+                        return false;
+
+                    }
+
+                });
+
+                _inputs.on({
+
+                    'focus': function(){
+
+                        var curItem = $( this );
+
+                        if( curItem.hasClass( 'form-validation__error' )){
+                            curItem.removeClass( 'form-validation__error' );
+                        }
+
+                    }
+
+                });
+
+            },
+            _ajaxRequest = function() {
+
+                _request.abort();
+                _request = $.ajax({
+                    url: _path,
+                    data: _obj.serialize(),
+                    dataType: 'html',
+                    timeout: 20000,
+                    type: "GET",
+                    success: function () {
+
+
+
+                    },
+                    error: function ( XMLHttpRequest ) {
+                        if( XMLHttpRequest.statusText != "abort" ) {
+                            alert( 'Error!' );
+                        }
+                    }
+                });
+
+            },
+            _init = function () {
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+            };
+
+        _init();
+
     };
 
 } )();

@@ -1,11 +1,127 @@
-.contact {
 
+.contact-us {
+  text-align: center;
+  padding: 59px 0 41px;
+  background: $main-yellow-color_2;
+
+  p {
+    margin-bottom: 32px;
+    font-size: 18px;
+    color: $main-black-color;
+    line-height: 24px;
+    @include asap-regular();
+  }
+  a[href^='tel'] {
+    color: inherit;
+    cursor: default;
+  }
+  &__title{
+    margin-bottom: 47px;
+    font-size: 18px;
+    color: $main-black-color;
+    text-align: center;
+    text-transform: uppercase;
+    @include oswald-bold();
+
+    i {
+      display: block;
+      width: auto;
+      margin: 0 auto 17px;
+      font-size: 27px;
+    }
+
+  }
+  &__address {
+    font-style: normal;
+
+    dl {
+      color: $main-black-color;
+      text-align: left;
+      max-width: 148px;
+      margin: 0 auto 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      dt {
+        margin-bottom: 17px;
+        font-weight: 700;
+        font-size: 18px;
+        color: $main-black-color;
+        text-transform: uppercase;
+        line-height: 36px;
+        @include asap-bold();
+      }
+      dd {
+        display: block;
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 25px;
+        @include asap-regular();
+      }
+    }
+  }
+  &__form {
+    margin-bottom: 22px;
+  }
 }
+
 @media (min-width: $tablet-portrait) {
 
+  .contact-us {
+    padding: 70px 0 37px;
+
+    p {
+      margin-bottom: 53px;
+    }
+    &__content {
+      margin-bottom: 54px;
+    }
+    &__address {
+      text-align: center;
+      padding-left: 87px;
+
+      > dl {
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;
+        width: 34%;
+        text-align: left;
+        max-width: none;
+
+        &:last-child {
+          margin-left: 45px;
+        }
+      }
+    }
+    &__form {
+      margin: 0 0 51px;
+    }
+  }
 }
 @media (min-width: $desktop) {
 
+  .contact-us {
+    padding: 88px 0 50px;
+
+    &__form {
+      margin-bottom: 64px;
+    }
+    &__address {
+      padding-left: 118px;
+
+      > dl {
+        width: 24%;
+
+        &:last-child {
+          margin-left: 0;
+        }
+        dt {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }
 
 

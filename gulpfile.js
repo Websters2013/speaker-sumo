@@ -21,7 +21,8 @@ var paths = {
             dist: 'main.min.js',
             contains: [
                 'app/js/jquery.main.js',
-                'app/js/jquery.map.js'
+                'app/js/jquery.map.js',
+                'app/js/jquery.media-gallery.js'
             ]
         }
     ],
@@ -71,7 +72,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('php', function () {
-    return gulp.src(paths.fonts, {
+    return gulp.src(paths.php, {
         base: 'app/php'
     }).pipe(gulp.dest('dist/php'));
 });
@@ -100,13 +101,13 @@ gulp.task( 'scripts', function () {
 
 gulp.task('images', function() {
     return gulp.src(paths.images)
-        .pipe(imagemin({optimizationLevel: 5}))
+        // .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('pictures', function() {
     return gulp.src(paths.pictures)
-        .pipe(imagemin({optimizationLevel: 5}))
+        // .pipe(imagemin({optimizationLevel: 5}))
         .pipe(gulp.dest('dist/pic'));
 });
 
@@ -116,6 +117,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.pictures,    ['pictures',  browserSync.reload]);
     gulp.watch(paths.fonts,    ['fonts']);
     gulp.watch(paths.styles,    ['styles', browserSync.reload]);
+    gulp.watch(paths.php,    ['php', browserSync.reload]);
     gulp.watch(paths.vendorStyles,    [ 'vendorStyles' ]);
     gulp.watch(paths.views,     ['views',   browserSync.reload]);
 });
