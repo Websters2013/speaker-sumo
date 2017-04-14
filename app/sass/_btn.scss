@@ -62,6 +62,15 @@
     letter-spacing: 1px;
   }
 
+  &_6 {
+    min-width: 155px;
+    height: 58px;
+    background: $main-black-color;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+    color: $main-white-color;
+    font-size: 20px;
+    @include asap-bold();
+  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -94,11 +103,15 @@
       max-width: 277px;
     }
 
+    &_6 {
+      min-width: 175px;
+      height: 65px;
+      font-size: 20px;
+    }
   }
-
 }
 
-@media (min-width: $tablet-portrait) {
+@media (min-width: $tablet-landscape) {
 
   .btn {
 
@@ -108,7 +121,5 @@
       font-size: 18px;
       line-height: 18px;
     }
-
   }
-
 }

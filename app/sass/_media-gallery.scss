@@ -5,37 +5,77 @@
   display: none;
 }
 .media-gallery {
-  padding: 78px 12px 61px;
+  padding: 40px 12px;
   background: #e6e6e6;
   color: $main-black-color;
   font-size: 16px;
   text-align: center;
 
   &__title{
-    margin-bottom: 37px;
-    font-size: 18px;
+    margin-bottom: 40px;
+    font-size: 27px;
     color: $main-black-color;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: -1.9px;
     @include oswald-bold();
 
     i {
       display: block;
       width: auto;
-      margin: 0 auto 17px;
-      font-size: 27px;
+      margin: 0 auto 15px;
+      font-size: 35px;
     }
 
   }
   &__cover {
     overflow: hidden;
-    width: 253px;
-    margin: 0 auto 45px;
+    margin: 0 25px;
+
+    .swiper-wrapper {
+
+    }
+    .swiper-button-next,
+    .swiper-button-prev{
+      position: absolute;
+      top: 50%;
+      width: 15px;
+      height: 80px;
+      background-color: rgba(0,0,0,.24);
+      -webkit-transform: translateY(-28%);
+      transform: translateY(-28%);
+      z-index: 2;
+      background-image: none;
+
+      &:before{
+        content: '';
+        position: absolute;
+        top: 45%;
+        left: 6px;
+        width: 7px;
+        height: 7px;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        transform: rotate(-45deg);
+      }
+    }
+    .swiper-button-next {
+      right: 0;
+
+      &:before{
+        left: 3px;
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+      }
+    }
+    .swiper-button-prev {
+      left: 0;
+    }
   }
   &__item {
     display: inline-block;
     vertical-align: top;
-    padding-bottom: 94%;
+    padding-bottom: 94.9%;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -64,7 +104,7 @@
         border-left: 20px solid #435a65;
         content: '';
       }
-      &:hover:before {
+      &:hover {
 
         &:before {
           background-color: rgba( 203, 241, 241, 1 );
@@ -76,7 +116,7 @@
     display: none;
   }
   &__switcher {
-    margin: 0 -15px 33px;
+    margin: 0 0 36px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -86,10 +126,10 @@
     vertical-align: top;
     position: relative;
     max-width: 180px;
-    width: 50%;
-    height: 54px;
+    width: 46.8%;
+    height: 56px;
     text-transform: uppercase;
-    margin: 0 2px;
+    margin: 0 2px 4px;
     @include transition( background, .3, 0 );
 
     & + .media-gallery__check {
@@ -98,6 +138,9 @@
     &.active {
       background: rgba(255,255,255,0.3);
     }
+  }
+  &__more {
+    display: none;
   }
 }
 .swiper-popup {
@@ -262,11 +305,17 @@
 @media (min-width: $tablet-portrait) {
 
   .media-gallery {
-    padding: 53px 8px 77px;
+    padding: 62px 8px 49px;
     font-size: 20px;
 
+    &__check {
+      max-width: 271px;
+      width: 46.8%;
+      height: 60px;
+      font-size: 24px;
+    }
     &__switcher {
-      margin-bottom: 56px;
+      margin-bottom: 43px;
     }
     &__wrap {
       display: flex;
@@ -276,10 +325,21 @@
     &__item {
       padding-bottom: 32%;
       width: 33.3%;
+      height: auto;
       border: 6px solid #e6e6e6;
     }
     &__cover {
-      margin-bottom: 59px;
+      margin-bottom: 51px;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: block;
+      }
+    }
+    &__more {
+      display: inline-flex;
+      font-size: 24px;
+      line-height: 1;
     }
   }
 
@@ -318,10 +378,10 @@
 @media (min-width: $desktop) {
 
   .media-gallery {
-    padding: 53px 4px 63px;
+    padding: 59px 4px 54px;
 
     &__switcher {
-      margin-bottom: 45px;
+      margin-bottom: 35px;
     }
     &__cover {
       margin-bottom: 37px;
@@ -338,7 +398,7 @@
     &__item {
       margin: 0;
       width: 20%;
-      padding-bottom: 19%;
+      padding-bottom: 18.8%;
       border: 8px solid #e6e6e6;
       box-sizing: border-box;
       -webkit-transition: opacity 0.3s ease, transform 0.3s ease;

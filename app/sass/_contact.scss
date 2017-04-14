@@ -1,23 +1,20 @@
 
 .contact-us {
   text-align: center;
-  padding: 59px 0 41px;
+  padding: 27px 17px 50px;
   background: $main-yellow-color_2;
 
   p {
-    margin-bottom: 32px;
-    font-size: 18px;
-    color: $main-black-color;
-    line-height: 24px;
-    @include asap-regular();
+    display: none;
   }
   a[href^='tel'] {
     color: inherit;
     cursor: default;
   }
   &__title{
-    margin-bottom: 47px;
-    font-size: 18px;
+    margin-bottom: 50px;
+    font-size: 26px;
+    letter-spacing: -1.2px;
     color: $main-black-color;
     text-align: center;
     text-transform: uppercase;
@@ -26,8 +23,8 @@
     i {
       display: block;
       width: auto;
-      margin: 0 auto 17px;
-      font-size: 27px;
+      margin: 0 auto 5px;
+      font-size: 30px;
     }
 
   }
@@ -37,19 +34,19 @@
     dl {
       color: $main-black-color;
       text-align: left;
-      max-width: 148px;
-      margin: 0 auto 25px;
+      max-width: 170px;
+      margin: 0 auto 39px;
 
       &:last-child {
         margin-bottom: 0;
       }
       dt {
-        margin-bottom: 17px;
-        font-weight: 700;
+        margin-bottom: 4px;
         font-size: 18px;
         color: $main-black-color;
         text-transform: uppercase;
         line-height: 36px;
+        letter-spacing: 1.1px;
         @include asap-bold();
       }
       dd {
@@ -62,62 +59,80 @@
     }
   }
   &__form {
-    margin-bottom: 22px;
+    margin-bottom: 33px;
   }
 }
 
 @media (min-width: $tablet-portrait) {
 
   .contact-us {
-    padding: 70px 0 37px;
+    padding: 82px 0 54px;
 
     p {
-      margin-bottom: 53px;
+      display: block;
+      margin-bottom: 41px;
+      font-size: 18px;
+      color: $main-black-color;
+      line-height: 24px;
+      @include asap-regular();
+    }
+    &__title {
+      margin-bottom: 32px;
     }
     &__content {
       margin-bottom: 54px;
     }
     &__address {
       text-align: center;
-      padding-left: 87px;
 
       > dl {
         display: inline-block;
         vertical-align: top;
         margin-bottom: 0;
-        width: 34%;
+        width: 17%;
         text-align: left;
         max-width: none;
 
         &:last-child {
-          margin-left: 45px;
+          margin-left: 126px;
         }
       }
     }
     &__form {
-      margin: 0 0 51px;
+      margin: 0 0 86px;
     }
   }
 }
 @media (min-width: $desktop) {
 
   .contact-us {
-    padding: 88px 0 50px;
+    padding: 72px 0 55px;
 
+    p {
+      margin-bottom: 40px;
+    }
+    &__title {
+      margin-bottom: 34px;
+      font-size: 27px;
+
+      i {
+        margin-bottom: 14px;
+        font-size: 31px;
+      }
+    }
     &__form {
-      margin-bottom: 64px;
+      margin-bottom: 85px;
     }
     &__address {
-      padding-left: 118px;
 
       > dl {
-        width: 24%;
+        width: 9.8%;
 
         &:last-child {
-          margin-left: 0;
+          margin-left: 115px;
         }
         dt {
-          margin-bottom: 10px;
+          margin-bottom: 4px;
         }
       }
     }
