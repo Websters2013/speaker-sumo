@@ -29,10 +29,10 @@
   }
 
   &__item {
-    width: 32%;
+    width: 33%;
+    max-width: 400px;
     height: 436px;
     padding: 32px 20px 36px;
-    margin: 0 0.2% 0.2%;
     background: $main-white-color;
     text-align: center;
     overflow: hidden;
@@ -172,10 +172,37 @@
 
   }
 
-
 }
 
 @media (min-width: $desktop) {
+
+  .presentation {
+
+    &__title i{
+      margin-bottom: 19px;
+    }
+
+    &__list {
+      width: 100%;
+      max-width: 1216px;
+
+      & > div{
+        justify-content: space-between;
+        align-items: stretch;
+      }
+
+    }
+
+    &__item-list {
+      max-width: 269px;
+    }
+
+    &__button-prev,
+    &__button-next{
+      display: none;
+    }
+
+  }
 
 }
 

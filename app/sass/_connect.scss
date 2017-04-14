@@ -54,6 +54,15 @@
 
 @media (min-width: $desktop) {
 
+  .connect {
+    padding-top: 59px;
+
+    &__title i {
+      font-size: 31px;
+    }
+
+  }
+
 }
 
 

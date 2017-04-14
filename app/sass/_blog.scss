@@ -33,9 +33,10 @@
   &__item{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     height: 320px;
+    margin-bottom: 20px;
     overflow: hidden;
 
     img{
@@ -55,6 +56,10 @@
 
   }
 
+  &__item-more {
+    display: none;
+  }
+
   &__item-title {
     position: absolute;
     left: 25px;
@@ -67,25 +72,6 @@
     text-transform: uppercase;
     z-index: 2;
     text-align: left;
-  }
-
-  &__item-more {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 35px;
-    height: 30px;
-    background-color: #7a43c6;
-    color: #fff;
-    opacity: 0;
-    transition: opacity .3s ease;
-    -webkit-transition: opacity .3s ease;
   }
 
   &__button-prev,
@@ -184,5 +170,62 @@
 }
 
 @media (min-width: $desktop) {
+
+  .blog {
+    padding-bottom: 59px;
+
+    &__title{
+      margin-bottom: 25px;
+    }
+
+    &__list{
+      width: 1148px;
+      margin: 0 auto;
+      padding: 20px 20px 16px;
+
+      & > div{
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        width: auto;
+        margin-right: -100px;
+      }
+
+    }
+
+    &__item{
+      width: 350px;
+      margin-right: 23px;
+      @include transition( box-shadow, .2, 0 );
+
+      &:hover {
+        box-shadow: 0 5px 22.56px 1.44px rgba(0, 0, 0, 0.29);
+
+        .blog__item-more {
+          -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+        }
+
+      }
+
+    }
+
+    &__item-more {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 4px 13px;
+      background: $main-yellow-color_2;
+      font-size: 16px;
+      color: $main-black-color;
+      text-transform: uppercase;
+      @include asap-bold();
+      -webkit-transform: translate(100%, 100%);
+      transform: translate(100%, 100%);
+      @include transition( transform, .2, 0 );
+    }
+
+  }
 
 }

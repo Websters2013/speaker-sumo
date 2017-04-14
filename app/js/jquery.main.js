@@ -1,26 +1,10 @@
-( function(){
+"use strict";
 
-    "use strict";
+( function(){
 
     $(function () {
 
-        $.each( $( '.presentation' ), function() {
-            new Sliders ( $( this ) );
-        } );
-
-        $.each( $( '.books' ), function() {
-            new Sliders ( $( this ) );
-        } );
-
-        $.each( $( '.blog' ), function() {
-            new Sliders ( $( this ) );
-        } );
-
-        $.each( $( '.posts' ), function() {
-            new Sliders ( $( this ) );
-        } );
-
-        $.each( $( '.past' ), function() {
+        $.each( $( '.site' ), function() {
             new Sliders ( $( this ) );
         } );
 
@@ -30,116 +14,6 @@
         } );
 
     } );
-
-    var Sliders = function( obj ) {
-
-        //private properties
-        var _obj = obj,
-            _window = $( window ),
-            _presentationSlider = _obj.find( '.presentation__list' ),
-            _booksSlider = _obj.find( '.books__list' ),
-            _blogSlider = _obj.find( '.blog__list' ),
-            _postSlider = _obj.find( '.posts__list' ),
-            _pastSlider = _obj.find( '.past__list' ),
-            _presentationPrev = _obj.find( '.presentation__button-prev' ),
-            _booksPrev = _obj.find( '.books__button-prev' ),
-            _blogPrev = _obj.find( '.blog__button-prev' ),
-            _postPrev = _obj.find( '.posts__button-prev' ),
-            _pastPrev = _obj.find( '.past__button-prev' ),
-            _presentationNext = _obj.find( '.presentation__button-next' ),
-            _booksNext = _obj.find( '.books__button-next' ),
-            _blogNext = _obj.find( '.blog__button-next' ),
-            _postNext = _obj.find( '.posts__button-next' ),
-            _pastNext = _obj.find( '.past__button-next' ),
-            _books,
-            _blog,
-            _post,
-            _past,
-            _presentation;
-
-        //private methods
-        var _initSlider = function() {
-
-                _presentation = new Swiper ( _presentationSlider, {
-                    autoplay: false,
-                    speed: 500,
-                    effect: 'slide',
-                    slidesPerView: 1,
-                    loop: false,
-                    prevButton: _presentationPrev,
-                    nextButton: _presentationNext
-                } );
-
-                _books = new Swiper ( _booksSlider, {
-                    autoplay: false,
-                    speed: 500,
-                    effect: 'slide',
-                    slidesPerView: 2,
-                    loop: false,
-                    prevButton: _booksPrev,
-                    nextButton: _booksNext,
-                    768: {
-                        slidesPerView: 1
-                    }
-                } );
-
-                _blog = new Swiper ( _blogSlider, {
-                    autoplay: false,
-                    speed: 500,
-                    effect: 'slide',
-                    slidesPerView: 1,
-                    loop: false,
-                    prevButton: _blogPrev,
-                    nextButton: _blogNext
-                } );
-
-                _post = new Swiper ( _postSlider, {
-                    autoplay: false,
-                    speed: 500,
-                    effect: 'slide',
-                    slidesPerView: 1,
-                    loop: false,
-                    prevButton: _postPrev,
-                    nextButton: _postNext
-                } );
-
-                _past = new Swiper ( _pastSlider, {
-                    autoplay: false,
-                    speed: 500,
-                    effect: 'slide',
-                    slidesPerView: 1,
-                    loop: false,
-                    prevButton: _pastPrev,
-                    nextButton: _pastNext
-                } );
-
-            },
-            _onEvent = function() {
-
-            console.log( _window.width() );
-
-                _window.on(
-                    'resize', function () {
-
-                        if ( _window.width() < 1200 ) {
-                            _initSlider();
-                        }
-
-                    }
-                )
-
-            },
-            _constructor = function() {
-                _initSlider();
-                _onEvent();
-            };
-
-        //public properties
-
-        //public methods
-
-        _constructor();
-    };
 
     var SubMenu = function (obj) {
 
@@ -287,6 +161,135 @@
         //public methods
 
         _init();
+    };
+
+    var Sliders = function( obj ) {
+
+        //private properties
+        var _obj = obj,
+            _window = $( window ),
+            _presentationSlider = _obj.find( '.presentation__list' ),
+            _booksSlider = _obj.find( '.books__list' ),
+            _blogSlider = _obj.find( '.blog__list' ),
+            _postSlider = _obj.find( '.posts__list' ),
+            _pastSlider = _obj.find( '.past__list' ),
+            _presentationPrev = _obj.find( '.presentation__button-prev' ),
+            _booksPrev = _obj.find( '.books__button-prev' ),
+            _blogPrev = _obj.find( '.blog__button-prev' ),
+            _postPrev = _obj.find( '.posts__button-prev' ),
+            _pastPrev = _obj.find( '.past__button-prev' ),
+            _presentationNext = _obj.find( '.presentation__button-next' ),
+            _booksNext = _obj.find( '.books__button-next' ),
+            _blogNext = _obj.find( '.blog__button-next' ),
+            _postNext = _obj.find( '.posts__button-next' ),
+            _pastNext = _obj.find( '.past__button-next' ),
+            _books,
+            _blog,
+            _post,
+            _past,
+            _presentation,
+            _initFlag = false;
+
+        //private methods
+        var _initSlider = function() {
+
+                if ( _window.width() >= 1200  || _initFlag ) {
+                    return false
+                }
+
+                _initFlag = true;
+
+                _presentation = new Swiper ( _presentationSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: false,
+                    prevButton: _presentationPrev,
+                    nextButton: _presentationNext
+                } );
+
+                _blog = new Swiper ( _blogSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: false,
+                    prevButton: _blogPrev,
+                    nextButton: _blogNext
+                } );
+
+                _post = new Swiper ( _postSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: false,
+                    prevButton: _postPrev,
+                    nextButton: _postNext
+                } );
+
+                _past = new Swiper ( _pastSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: false,
+                    prevButton: _pastPrev,
+                    nextButton: _pastNext
+                } );
+
+                _books = new Swiper ( _booksSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 2,
+                    loop: false,
+                    prevButton: _booksPrev,
+                    nextButton: _booksNext,
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 1
+                        }
+                    }
+                } );
+
+            },
+            _onEvent = function() {
+
+                _window.on(
+                    'resize', function () {
+
+                        if ( _window.width() < 1200 ) {
+
+                            _initSlider();
+
+                        } else if ( _window.width() >= 1200 && _initFlag ) {
+
+                            $( '.presentation__list' )[0].swiper.destroy( true, true );
+                            $( '.books__list' )[0].swiper.destroy(true, true);
+                            $( '.blog__list' )[0].swiper.destroy(true, true);
+                            $( '.posts__list' )[0].swiper.destroy(true, true);
+                            $( '.past__list' )[0].swiper.destroy(true, true);
+
+                            _initFlag = false;
+
+                        }
+
+                    }
+                )
+
+            },
+            _constructor = function() {
+                _initSlider();
+                _onEvent();
+            };
+
+        //public properties
+
+        //public methods
+
+        _constructor();
     };
 
     var Menu = function (obj) {

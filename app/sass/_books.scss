@@ -138,8 +138,20 @@
 @media (min-width: $desktop) {
 
   .books {
+    padding-bottom: 79px;
+
+    &__title {
+      margin-bottom: 44px;
+
+      i{
+        margin-bottom: 17px;
+      }
+
+    }
 
     &__item {
+      width: 218px;
+      margin: 0 57px 20px 0;
       @include transition( box-shadow, .2, 0 );
 
       &:hover {
@@ -149,6 +161,7 @@
           -webkit-transform: translate(0%, 0%);
           transform: translate(0%, 0%);
         }
+
       }
 
     }
@@ -167,6 +180,26 @@
       -webkit-transform: translate(100%, 100%);
       transform: translate(100%, 100%);
       @include transition( transform, .2, 0 );
+    }
+
+    &__list{
+      max-width: 1090px;
+      margin-bottom: 20px;
+      padding: 20px;
+
+      & > div{
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        width: auto;
+        margin-right: -100px;
+      }
+
+    }
+
+    &__button-prev,
+    &__button-next{
+      display: none;
     }
 
   }

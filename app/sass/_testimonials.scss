@@ -24,6 +24,7 @@
   }
 
   &__subtitle{
+    max-width: 690px;
     margin: 0 auto 49px;
     font-size: 16px;
     line-height: 24px;
@@ -130,6 +131,39 @@
 @media (min-width: $desktop) {
 
   .testimonials {
+
+    &__subtitle{
+      margin-bottom: 72px;
+    }
+
+    &__list{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      max-width: 1233px;
+      margin-bottom: 31px;
+      padding-left: 13px;
+    }
+
+    &__item{
+      width: 48.2%;
+      max-width: 590px;
+      margin-right: 20px;
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
+
+      &:hover{
+        background-color: #ffefae;
+      }
+
+    }
+
+    &__btn-wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
   }
 
