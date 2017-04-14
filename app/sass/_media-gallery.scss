@@ -89,8 +89,7 @@
     width: 50%;
     height: 54px;
     text-transform: uppercase;
-    //color: #fff;
-    //font-size: 18px;
+    margin: 0 2px;
     @include transition( background, .3, 0 );
 
     & + .media-gallery__check {
