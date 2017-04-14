@@ -15,7 +15,6 @@
 
         $.each( $( '.site__footer-menu' ), function() {
             new SubMenu( $(this) );
-            new Menu( $(this) );
         } );
 
         $.each( $( '.form-validation' ), function() {
@@ -317,7 +316,7 @@
 
                 _showBtn.on({
                     click: function () {
-
+                        console.log('_openMenu');
                         _openMenu($(this));
 
                     }
