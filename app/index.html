@@ -13,6 +13,50 @@
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+            font-size: 14px;
+        }
+
+        #script-warning {
+            display: none;
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            padding: 0 10px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: red;
+        }
+
+        #loading {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 10px;
+        }
+        .timing {
+            font-size: 11px;
+            background: #ccc;
+            height: 70px;
+        }
+        .timing h2 {
+            font-size: 11px;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -595,6 +639,20 @@
                 schedule
             </h3>
             <!--/schedule__title-->
+
+            <div>
+                <select name="month" id="month">
+
+                </select>
+
+                <div class="all-month-events"></div>
+
+                <div id="month-set"></div>
+            </div>
+
+            <div id='loading'>loading...</div>
+
+            <div id='calendar'></div>
 
         </div>
         <!--/schedule-->
@@ -1207,11 +1265,176 @@
     </div>
     <!-- /popup -->
 
-    <script src="js/vendors/jquery-2.2.1.min.js"></script>
+    <script src="js/vendors/jquery-3.2.1.min.js"></script>
     <script src="js/vendors/isotope.pkgd.min.js"></script>
+    <script src="js/vendors/moment.min.js"></script>
+    <script src="js/vendors/fullcalendar.min.js"></script>
     <script src="js/vendors/swiper.jquery.min.js"></script>
     <script src="js/vendors/jquery.nicescroll.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAS6f0WBGDAH-5S1Lcp38IaZRgwFFRBAPM&callback=initMap" async defer></script>
     <script src="js/main.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            var arr = [];
+
+            function ordinal_suffix_of(i) {
+                var j = i % 10,
+                    k = i % 100;
+                if (j == 1 && k != 11) {
+                    return i + "st";
+                }
+                if (j == 2 && k != 12) {
+                    return i + "nd";
+                }
+                if (j == 3 && k != 13) {
+                    return i + "rd";
+                }
+                return i + "th";
+            }
+
+            $( '#calendar' ).fullCalendar( {
+                dayNamesShort: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+                allDayText: 'all-day',
+                header: {
+                    left: 'prev, next',
+                    center: '',
+                    right: ''
+                },
+                firstDay: 1,
+                editable: false,
+                defaultDate: '2017-04-12',
+                navLinks: true,
+                eventLimit: true,
+                events: {
+                    url: 'php/get-events.php',
+                    error: function() {
+                        $( '#script-warning' ).show();
+                    }
+                },
+                loading: function( bool ) {
+                    $('#loading').toggle( bool );
+                },
+                eventRender: function( event, element, view ) {
+
+                    var time = new Date(event.start._i).getTime()/1000;
+
+                    var timestamp = time;
+
+                    var xx = new Date();
+                    xx.setTime( timestamp * 1000 );
+
+                    var objDate = new Date(xx),
+                        locale = "en-us",
+                        month = objDate.toLocaleString(locale, { month: "long" });
+
+                    return $('<div class="timing">' +
+                        '<div>' + ordinal_suffix_of(xx.getDate()) + ' ' + month + '</div>' +
+                        '<h2>' + event.title + '</h2>' +
+                        '<div>' + event.city + '</div>' +
+                        '<a href="'+ event.url +'">+</a>' +
+                        '</div>');
+                }
+            });
+
+            function bla() {
+                var flag = true;
+                var monthArr = [];
+                var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                var jqxhr = $.ajax( "php/events.json" )
+                    .done(function( msg ) {
+
+                        $( msg ).each(function() {
+
+                            var time = new Date(this.start).getTime()/1000;
+
+                            var timestamp = time;
+
+                            arr.push(timestamp);
+
+                        } );
+
+                        for( var i = 0; i <= arr.length-1; i++ ) {
+
+                            var xx = new Date();
+                            xx.setTime( arr[i] * 1000 );
+
+                            if( flag ){
+                                monthArr.push([xx.getMonth(),xx.getFullYear()]);
+                                flag = false;
+                            }
+
+                            if ( monthArr[monthArr.length-1].indexOf(xx.getMonth()) == -1) {
+                                monthArr.push([xx.getMonth(),xx.getFullYear()]);
+                            }
+
+
+                        }
+
+                        for( var i = 0; i <= monthArr.length-1; i++ ) {
+
+                            $('#month').append('<option value="'+ monthArr[i][0] +'"><span>'+ monthNames[monthArr[i][0]] +'</span>'+ monthArr[i][1] +'</option>');
+                            $('#month-set').append('<div><span>'+ monthNames[monthArr[i][0]] +'</span>'+ monthArr[i][1] +'</div>');
+                        }
+
+                    })
+                    .fail(function() {
+                        alert( "error" );
+                    });
+
+            }
+
+            bla();
+
+            $( '#month' ).on( {
+                change: function() {
+
+                    var valueMonth = $(this).find('option:selected').val();
+
+                    var jqxhr = $.ajax( "php/events.json" )
+                        .done(function( msg ) {
+
+                            $( msg ).each(function() {
+
+                                var time = new Date(this.start).getTime()/1000;
+
+                                var timestamp = time;
+
+                                var xx = new Date();
+                                xx.setTime( timestamp * 1000 );
+
+                                xx.getMonth();
+
+                                if(xx.getMonth() == valueMonth) {
+
+                                    var objDate = new Date(xx),
+                                        locale = "en-us",
+                                        month = objDate.toLocaleString(locale, { month: "long" } );
+                                    $('.all-month-events').html('');
+                                    $('.all-month-events').append('<div class="">' +
+                                        '<div>' + ordinal_suffix_of(xx.getDate()) + ' ' + month + '</div>' +
+                                        '<h2>' + this.title + '</h2>' +
+                                        '<div>' + this.city + '</div>' +
+                                        '<a href="'+ this.url +'">+</a>' +
+                                        '</div>')
+
+                                }
+
+                            } );
+
+                        } )
+                        .fail( function () {
+                            alert( "error" );
+                        } );
+
+                }
+            })
+
+        });
+
+    </script>
+
 </body>
 </html>
