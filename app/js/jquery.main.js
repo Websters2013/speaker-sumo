@@ -17,6 +17,10 @@
             new FormValidation ( $( this ) )
         } );
 
+        $.each( $( '.schedule' ), function() {
+            new Calendar ( $( this ) )
+        } );
+
     } );
 
     var SubMenu = function (obj) {
@@ -538,6 +542,207 @@
             };
 
         _init();
+
+    };
+
+    var Calendar = function( obj ) {
+
+        var _obj = obj,
+            _select = _obj.find( '.schedule-dates' ),
+            _calendar = _obj.find( '#calendar' ),
+            _eventWrap = _obj.find( '.schedule__venue-frame' ),
+            _monthWrap = _obj.find( '.schedule__month' ),
+            _monthItem = _obj.find( '.schedule__month-item' ),
+            _arr = [];
+
+        var _onEvents = function() {
+
+                _select.on( {
+                    change: function() {
+                        _setEventsBySelect();
+                    }
+                } );
+
+                _monthItem.on( {
+                    click: function() {
+
+                        var curDate = $( this ).data( 'time' );
+
+                        _calendar.fullCalendar( 'gotoDate', curDate );
+                        return false;
+                    }
+                } );
+
+            },
+            _initCalendar = function () {
+
+                _calendar.fullCalendar( {
+                        dayNamesShort: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+                        allDayText: 'all-day',
+                        header: {
+                            left: 'prev, next',
+                            center: '',
+                            right: ''
+                        },
+                        firstDay: 1,
+                        editable: false,
+                        defaultDate: '2017-04-12',
+                        navLinks: true,
+                        eventLimit: true,
+                        events: {
+                            url: 'php/get-events.php',
+                            error: function() {
+                                $( '#script-warning' ).show();
+                            }
+                        },
+                        loading: function( bool ) {
+                            $('#loading').toggle( bool );
+                        },
+                        eventRender: function( event, element, view ) {
+
+                            var time = new Date(event.start._i).getTime()/1000;
+
+                            var timestamp = time;
+
+                            var xx = new Date();
+                            xx.setTime( timestamp * 1000 );
+
+                            var objDate = new Date(xx),
+                                locale = "en-us",
+                                month = objDate.toLocaleString(locale, { month: "long" });
+
+                            return $('<div class="timing">' +
+                                '<div>' + _ordinalSuffixOf(xx.getDate()) + ' ' + month + '</div>' +
+                                '<h2>' + event.title + '</h2>' +
+                                '<div>' + event.city + '</div>' +
+                                '<a href="'+ event.url +'">+</a>' +
+                                '</div>');
+                        }
+                    } );
+
+            },
+            _initController = function() {
+
+                var flag = true,
+                    monthArr = [],
+                    monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                    setEvents = $.ajax( 'php/events.json' )
+                        .done(function( msg ) {
+
+                            $( msg ).each(function() {
+
+                                var time = new Date( this.start ).getTime()/1000,
+                                    timestamp = time;
+
+                                _arr.push( timestamp );
+
+                            } );
+
+                            for( var i = 0; i <= _arr.length - 1; i++ ) {
+
+                                var xx = new Date();
+                                xx.setTime( _arr[i] * 1000 );
+
+                                if( flag ){
+                                    monthArr.push( [xx.getMonth(), xx.getFullYear() ] );
+                                    flag = false;
+                                }
+
+                                if ( monthArr [ monthArr.length - 1 ].indexOf( xx.getMonth() ) == -1 ) {
+                                    monthArr.push( [ xx.getMonth(), xx.getFullYear() ] );
+                                }
+
+                            }
+
+                            for( var i = 0; i <= monthArr.length-1; i++ ) {
+
+                                var lengthMonth = String( monthArr[i][0] ).length,
+                                    numMoth = ( lengthMonth == '1' ) ? ( '0'+ ( monthArr[i][0] + 1 ) ) : monthArr[i][0] + 1;
+
+                                _select.append('<option value="'+ monthArr[i][0] +'"><span>'+ monthNames[monthArr[i][0]] +'</span> '+ monthArr[i][1] +'</option>');
+                                _monthWrap.append('<a href="#" class="schedule__month-item" data-time="'+ monthArr[i][1] +'-'+ numMoth +'-01"><span>'+ monthNames[monthArr[i][0]] +'</span> '+ monthArr[i][1] +'</a>');
+                            }
+
+                            _setEventsBySelect();
+
+                            _select.each( function(){
+                                new WebstersSelect( {
+                                    obj: $( this ),
+                                    optionType: 1,
+                                    showType: 2
+                                } );
+                            } );
+
+                            _monthItem = _obj.find( '.schedule__month-item' );
+
+                            _onEvents();
+
+                        } )
+                        .fail( function() {
+                            alert( 'error' );
+                        } );
+
+            },
+            _setEventsBySelect = function () {
+
+                var valueMonth = _select.find( 'option:selected' ).val(),
+                    setEvents = $.ajax( 'php/events.json' )
+                        .done(function( msg ) {
+
+                            _eventWrap.empty();
+
+                            $( msg ).each( function() {
+
+                                var time = new Date(this.start).getTime()/1000,
+                                    timestamp = time,
+                                    xx = new Date();
+                                xx.setTime( timestamp * 1000 );
+
+                                xx.getMonth();
+
+                                if( xx.getMonth() == valueMonth ) {
+
+                                    var objDate = new Date( xx ),
+                                        locale = "en-us",
+                                        month = objDate.toLocaleString(locale, { month: "long" } );
+
+                                    _eventWrap.append( '<li class="schedule__frame-li"><a href="'+ this.url +'" class="schedule__track">' +
+                                        '<time datetime="2016-05-15T7:00" class="schedule__track-time">' + _ordinalSuffixOf( xx.getDate() ) + ' ' + month + '</time>' +
+                                        '<p><b>' + this.title + '</b></p>' +
+                                        '<p><b>' + this.city + '</b></p>' +
+                                        '</a></li>'
+                                    );
+
+                                }
+
+                            } );
+
+                        } )
+                        .fail( function () {
+                            alert( 'error' );
+                        } );
+
+            },
+            _ordinalSuffixOf = function( i ) {
+                var j = i % 10,
+                    k = i % 100;
+                if ( j == 1 && k != 11 ) {
+                    return i + "st";
+                }
+                if ( j == 2 && k != 12 ) {
+                    return i + "nd";
+                }
+                if ( j == 3 && k != 13 ) {
+                    return i + "rd";
+                }
+                return i + "th";
+            },
+            _constuctor = function () {
+                _initCalendar();
+                _initController();
+            };
+
+        _constuctor();
 
     };
 
