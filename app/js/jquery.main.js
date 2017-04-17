@@ -13,6 +13,10 @@
             new Menu( $(this) );
         } );
 
+        $.each( $( '.site__footer-menu' ), function() {
+            new SubMenu( $(this) );
+        } );
+
         $.each( $( '.form-validation' ), function() {
             new FormValidation ( $( this ) )
         } );
@@ -316,7 +320,7 @@
 
                 _showBtn.on({
                     click: function () {
-
+                        console.log('_openMenu');
                         _openMenu($(this));
 
                     }

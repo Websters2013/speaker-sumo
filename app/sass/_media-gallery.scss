@@ -281,18 +281,6 @@
 
 @media (min-width: 460px) {
 
-  .media-gallery {
-
-    &__cover {
-      width:auto;
-      margin: 0 0 36px;
-    }
-    &__item {
-      padding-bottom: 50%;
-      width: 50%;
-    }
-  }
-
   .swiper-popup {
 
     &__video {
@@ -301,7 +289,6 @@
     }
   }
 }
-
 @media (min-width: $tablet-portrait) {
 
   .media-gallery {
@@ -324,16 +311,16 @@
     }
     &__item {
       padding-bottom: 32%;
-      width: 33.3%;
+      width: 33.3% !important;
       height: auto;
       border: 6px solid #e6e6e6;
     }
     &__cover {
-      margin-bottom: 51px;
+      margin: 0 0 51px;
 
       .swiper-button-prev,
       .swiper-button-next {
-        display: block;
+        display: none;
       }
     }
     &__more {
@@ -342,7 +329,6 @@
       line-height: 1;
     }
   }
-
   .swiper-popup {
 
     .swiper-button-prev,
@@ -397,7 +383,7 @@
     }
     &__item {
       margin: 0;
-      width: 20%;
+      width: 20% !important;;
       padding-bottom: 18.8%;
       border: 8px solid #e6e6e6;
       box-sizing: border-box;

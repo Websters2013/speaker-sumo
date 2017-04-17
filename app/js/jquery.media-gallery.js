@@ -149,6 +149,7 @@
                             console.log('_window.width() >= 768 && _swiper');
 
                             _swiper.destroy();
+                            _swiper = null;
                             _initGallery();
 
                         }
