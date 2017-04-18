@@ -153,24 +153,33 @@
 @media (min-width: $desktop) {
 
   .place {
-    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 58px 85px 62px;
 
     &__map{
-      height: 820px;
+      width: 100%;
+      max-width: 600px;
     }
 
     &__title{
-      margin-bottom: 49px;
-      font-size: 36px;
 
-      &-icon{
-        margin-bottom: 12px;
+      i{
+        margin-bottom: 15px;
+        font-size: 30px;
       }
 
     }
 
-    &__popup{
+    &__subtitle {
+      margin-bottom: 79px;
+    }
 
+    &__popup{
+      width: 100%;
+      max-width: 600px;
+      padding-top: 86px;
     }
 
     &__labels{
@@ -178,7 +187,8 @@
     }
 
     .label{
-      font-size: 16px;
+      padding: 11px 17px 12px;
+      text-align: left;
     }
 
   }
