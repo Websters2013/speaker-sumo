@@ -9,7 +9,7 @@
 
   &__list{
     width: 294px;
-    margin: 0 auto 47px;
+    margin: 0 auto 28px;
   }
 
   &__title {
@@ -133,7 +133,7 @@
 
     &__list {
       width: 352px;
-      margin-bottom: 57px;
+      margin-bottom: 37px;
     }
 
     &__item{
@@ -224,6 +224,11 @@
       -webkit-transform: translate(100%, 100%);
       transform: translate(100%, 100%);
       @include transition( transform, .2, 0 );
+    }
+
+    &__button-prev,
+    &__button-next{
+      display: none;
     }
 
   }

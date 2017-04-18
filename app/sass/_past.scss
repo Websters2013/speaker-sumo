@@ -219,6 +219,11 @@
       @include transition( transform, .2, 0 );
     }
 
+    &__button-prev,
+    &__button-next{
+      display: none;
+    }
+
   }
 
 }

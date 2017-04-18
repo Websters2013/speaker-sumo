@@ -82,11 +82,18 @@
     line-height: 18px;
 
     &_2 {
+      min-width: 151px;
+      height: 55px;
+      font-size: 18px;
+      line-height: 18px;
+    }
+
+    /*&_2 {
       min-width: 193px;
       height: 70px;
       font-size: 23px;
       line-height: 23px;
-    }
+    }*/
 
     &_3{
       min-width: 151px;
@@ -109,6 +116,7 @@
       font-size: 20px;
     }
   }
+
 }
 
 @media (min-width: $tablet-landscape) {

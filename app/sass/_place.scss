@@ -47,6 +47,7 @@
   }
 
   &__labels{
+    position: relative;
     max-height: 201px;
   }
 
@@ -92,12 +93,21 @@
 
   }
 
+  .ps-container>.ps-scrollbar-y-rail{
+    opacity: 1;
+    z-index: 22;
+  }
+
+  .ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y{
+    width: 3px;
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
 
   .place {
-    padding: 79px 85px 90px;
+    padding: 79px 85px 69px;
     background-color: #f98f01;
 
     &__title{
@@ -117,7 +127,7 @@
     }
 
     &__popup{
-      padding: 59px 54px 48px;
+      padding: 59px 54px 90px;
       background-color: #fff;
     }
 

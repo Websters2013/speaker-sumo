@@ -158,7 +158,7 @@ var WebstersSelect = function( params ){
             maxHeight = _popup.outerHeight();
             if( maxHeight > _popup.find( 'li' ).eq( 0 ).outerHeight() * _visible ){
                 _popup.height( _popup.find( 'li' ).eq( 0 ).outerHeight() * _visible );
-                _scroll = _popup.niceScroll( {
+                _scroll = _popup.perfectScrollbar( {
                     horizrailenabled: false
                 } );
             }

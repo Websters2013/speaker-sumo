@@ -127,14 +127,9 @@ Location = function (obj) {
         },
         _initScroll = function () {
             if (_scroll == null)
-                _scroll = _wherePopup.find( '.place__labels' ).niceScroll({
-                    cursorcolor: "#ebebeb",
-                    cursoropacitymin: "1",
-                    cursorborderradius: "0",
-                    cursorborder: "none",
-                    cursorwidth: "4",
-                    enablemousewheel: true
-                });
+                _scroll = _wherePopup.find( '.place__labels' ).perfectScrollbar({
+                    horizrailenabled: false
+                } );
 
         },
         _setInfoWindow = function (index, place) {

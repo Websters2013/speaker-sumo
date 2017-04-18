@@ -336,8 +336,8 @@
                     effect: 'slide',
                     slidesPerView: 1,
                     loop: false,
-                    prevButton: _swiperNextBtn,
-                    nextButton: _swiperPrevBtn
+                    prevButton: _swiperPrevBtn,
+                    nextButton: _swiperNextBtn
                 } );
 
                 _swiper.update();
@@ -359,6 +359,7 @@
         _init();
 
     };
+
     var SwiperPopup = function ( obj, index ) {
 
         var _self = this,

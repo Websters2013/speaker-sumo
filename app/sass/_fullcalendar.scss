@@ -32,7 +32,7 @@ body .fc { /* extra precedence to overcome jqui */
 .fc-unthemed .fc-popover,
 .fc-unthemed .fc-list-view,
 .fc-unthemed .fc-list-heading td {
-	border-color: #ddd;
+	border-color: #dcdcdc;
 }
 
 .fc-unthemed .fc-popover {
@@ -50,7 +50,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed td.fc-today {
-	background: #fcf8e3;
+	//background: #fcf8e3;
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -331,6 +331,14 @@ previous button's border...
 	border-top: 0; /* where they meet, let the header have the border */
 }
 
+.fc .fc-day-top{
+	height: 20px;
+}
+
+.fc .fc-event-container{
+	padding-left: 3px;
+	padding-right: 3px;
+}
 
 /* Misc Reusable Components
 --------------------------------------------------------------------------------------------------*/
@@ -378,8 +386,8 @@ hr.fc-divider {
 	width: 100%;
 	box-sizing: border-box; /* fix scrollbar issue in firefox */
 	table-layout: fixed;
-	border-collapse: collapse;
-	border-spacing: 0;
+	border-collapse: separate;
+	border-spacing: 2px;
 	font-size: 1em; /* normalize cross-browser */
 }
 
@@ -389,16 +397,23 @@ hr.fc-divider {
 
 .fc th,
 .fc td {
-	border-style: solid;
+	border-style: dashed;
 	border-width: 1px;
 	padding: 0;
 	vertical-align: top;
 }
 
 .fc td.fc-today {
-	border-style: double; /* overcome neighboring borders */
+
 }
 
+.fc-day-header.fc-sat{
+	color: #7a7a7a;
+}
+
+.fc-day-header.fc-sun{
+	color: #f98f01;
+}
 
 /* Internal Nav Links
 --------------------------------------------------------------------------------------------------*/
@@ -436,6 +451,22 @@ a[data-goto]:hover {
 	border-top: 0 hidden transparent; /* no top border on first row */
 }
 
+.fc .fc-widget-header{
+	border: none;
+}
+
+.fc .fc-day-header{
+	padding-bottom: 6px;
+	border: none;
+	@include asap-bold;
+	font-size: 15px;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.fc .fc-body > tr > .fc-widget-content{
+	border: none;
+}
 
 /* Day Row (used within the header and the DayGrid)
 --------------------------------------------------------------------------------------------------*/
@@ -821,8 +852,44 @@ a.fc-more:hover {
 --------------------------------------------------------------------------------------------------*/
 
 .fc-toolbar {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
 	text-align: center;
 }
+
+.fc-toolbar button.fc-prev-button,
+.fc-toolbar button.fc-next-button{
+	display: block;
+	position: absolute;
+	bottom: 28px;
+	width: 39px;
+	height: 39px;
+	border: none;
+	border-radius: 50%;
+	background: url(../img/bg-arrow.png) no-repeat center #000;
+	text-indent: 999px;
+	z-index: 3;
+	overflow: hidden;
+	cursor: pointer;
+	-webkit-transition: background-color .3s ease, box-shadow .3s ease;
+	transition: background-color .3s ease, box-shadow .3s ease;
+
+	&:hover {
+		background-color: #f98f01;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+	}
+
+}
+.fc-prev-button{
+	right: 0;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.fc-next-button{
+	right: 45px;
+}
+
 
 .fc-toolbar.fc-header-toolbar {
 	margin-bottom: 1em;
@@ -953,7 +1020,14 @@ a.fc-more:hover {
 	padding: 0 2px; /* column headers can't have as much v space */
 }
 
-.fc-ltr .fc-basic-view .fc-day-top .fc-day-number { float: right; }
+.fc-ltr .fc-basic-view .fc-day-top .fc-day-number {
+	display: block;
+	padding-left: 8px;
+	font-size: 15px;
+	@include asap-bold;
+	cursor: default;
+	line-height: 17px;
+}
 .fc-rtl .fc-basic-view .fc-day-top .fc-day-number { float: left; }
 
 .fc-ltr .fc-basic-view .fc-day-top .fc-week-number { float: left; border-radius: 0 0 3px 0; }
@@ -1387,7 +1461,7 @@ be a descendant of the grid when it is being dragged.
 
 .fc-list-item-title a[href]:hover {
 	/* hover effect only on titles with hrefs */
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 
 /* message when no events */

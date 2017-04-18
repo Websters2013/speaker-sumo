@@ -11,51 +11,8 @@
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/perfect-scrollbar.min.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <style>
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-            font-size: 14px;
-        }
-
-        #script-warning {
-            display: none;
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-            padding: 0 10px;
-            line-height: 40px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 12px;
-            color: red;
-        }
-
-        #loading {
-            display: none;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        #calendar {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 10px;
-        }
-        .timing {
-            font-size: 11px;
-            background: #ccc;
-            height: 70px;
-        }
-        .timing h2 {
-            font-size: 11px;
-        }
-
-    </style>
 
 </head>
 <body>
@@ -423,8 +380,8 @@
                 </div>
                 <!--/presentation__list-->
 
-                <div class="presentation__button-prev mobile-slide-prev"></div>
-                <div class="presentation__button-next mobile-slide-next"></div>
+                <div class="presentation__button-prev"></div>
+                <div class="presentation__button-next"></div>
 
             </div>
             <!--/presentation__layout-->
@@ -617,8 +574,8 @@
                 </div>
                 <!--/blog__list-->
 
-                <div class="presentation__button-prev mobile-slide-prev"></div>
-                <div class="presentation__button-next mobile-slide-next"></div>
+                <div class="blog__button-prev"></div>
+                <div class="blog__button-next"></div>
 
             </div>
             <!--/blog__layout-->
@@ -647,14 +604,15 @@
                 <ul class="schedule__venue-frame"></ul>
 
                 <!-- schedule__month -->
-                <div class="schedule__month"></div>
+                <div class="schedule__month swiper-container"></div>
                 <!-- /schedule__month -->
+
+                <div class="schedule__button-prev"></div>
+                <div class="schedule__button-next"></div>
 
             </div>
 
-            <div id='loading'>loading...</div>
-
-            <div id='calendar'></div>
+            <div id="calendar"></div>
 
         </div>
         <!--/schedule-->
@@ -742,8 +700,8 @@
                 </div>
                 <!--/posts__list-->
 
-                <div class="presentation__button-prev mobile-slide-prev"></div>
-                <div class="presentation__button-next mobile-slide-next"></div>
+                <div class="posts__button-prev"></div>
+                <div class="posts__button-next"></div>
 
             </div>
             <!--/posts__layout-->
@@ -838,8 +796,8 @@
                 </div>
                 <!--/past__list-->
 
-                <div class="presentation__button-prev mobile-slide-prev"></div>
-                <div class="presentation__button-next mobile-slide-next"></div>
+                <div class="past__button-prev"></div>
+                <div class="past__button-next"></div>
 
             </div>
             <!--/past__layout-->
@@ -1386,7 +1344,7 @@
     <script src="js/vendors/moment.min.js"></script>
     <script src="js/vendors/fullcalendar.min.js"></script>
     <script src="js/vendors/swiper.jquery.min.js"></script>
-    <script src="js/vendors/jquery.nicescroll.min.js"></script>
+    <script src="js/vendors/perfect-scrollbar.jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAS6f0WBGDAH-5S1Lcp38IaZRgwFFRBAPM&callback=initMap" async defer></script>
     <script src="js/main.min.js"></script>
 </body>

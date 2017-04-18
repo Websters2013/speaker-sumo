@@ -144,7 +144,7 @@
     &__button-next{
       width: 22px;
       height: 103px;
-      transform: translateY(-49%);
+      transform: translateY(-71%);
 
       &:before {
         width: 9px;
@@ -221,6 +221,11 @@
       -webkit-transform: translate(100%, 100%);
       transform: translate(100%, 100%);
       @include transition( transform, .2, 0 );
+    }
+
+    &__button-prev,
+    &__button-next{
+      display: none;
     }
 
   }

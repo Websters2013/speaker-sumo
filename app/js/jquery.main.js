@@ -22,7 +22,7 @@
         } );
 
         $.each( $( '.schedule' ), function() {
-            new Calendar ( $( this ) )
+            new Schedule ( $( this ) )
         } );
 
     } );
@@ -185,25 +185,31 @@
             _blogSlider = _obj.find( '.blog__list' ),
             _postSlider = _obj.find( '.posts__list' ),
             _pastSlider = _obj.find( '.past__list' ),
+            _scheduleSlider = _obj.find( '.schedule__month' ),
             _presentationPrev = _obj.find( '.presentation__button-prev' ),
             _booksPrev = _obj.find( '.books__button-prev' ),
             _blogPrev = _obj.find( '.blog__button-prev' ),
             _postPrev = _obj.find( '.posts__button-prev' ),
             _pastPrev = _obj.find( '.past__button-prev' ),
+            _schedulePrev = _obj.find( '.schedule__button-prev' ),
             _presentationNext = _obj.find( '.presentation__button-next' ),
             _booksNext = _obj.find( '.books__button-next' ),
             _blogNext = _obj.find( '.blog__button-next' ),
             _postNext = _obj.find( '.posts__button-next' ),
             _pastNext = _obj.find( '.past__button-next' ),
+            _scheduleNext = _obj.find( '.schedule__button-next' ),
             _books,
             _blog,
             _post,
             _past,
             _presentation,
+            _schedule,
             _initFlag = false;
 
         //private methods
         var _initSlider = function() {
+
+
 
                 if ( _window.width() >= 1200  || _initFlag ) {
                     return false
@@ -260,7 +266,7 @@
                     prevButton: _booksPrev,
                     nextButton: _booksNext,
                     breakpoints: {
-                        768: {
+                        767: {
                             slidesPerView: 1
                         }
                     }
@@ -272,9 +278,11 @@
                 _window.on(
                     'resize', function () {
 
-                        if ( _window.width() < 1200 ) {
+                        if ( _window.width() < 1200 && !_initFlag ) {
 
                             _initSlider();
+
+                            _initFlag = true;
 
                         } else if ( _window.width() >= 1200 && _initFlag ) {
 
@@ -549,7 +557,7 @@
 
     };
 
-    var Calendar = function( obj ) {
+    var Schedule = function( obj ) {
 
         var _obj = obj,
             _select = _obj.find( '.schedule-dates' ),
@@ -557,6 +565,12 @@
             _eventWrap = _obj.find( '.schedule__venue-frame' ),
             _monthWrap = _obj.find( '.schedule__month' ),
             _monthItem = _obj.find( '.schedule__month-item' ),
+            _window = $(window),
+            _initMobileFlag = true,
+            _initDesktopFlag = true,
+            _prevMonth = _obj.find( '.fc-prev-button' ),
+            _nextMonth = _obj.find( '.fc-next-button' ),
+            _monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
             _arr = [];
 
         var _onEvents = function() {
@@ -570,10 +584,49 @@
                 _monthItem.on( {
                     click: function() {
 
+                        _monthItem.removeClass( 'active' );
+
                         var curDate = $( this ).data( 'time' );
 
+                        $( this ).addClass( 'active' );
                         _calendar.fullCalendar( 'gotoDate', curDate );
                         return false;
+                    }
+                } );
+
+                _window.on( {
+                    'resize': function() {
+
+                        if ( _window.width() < 1200 && _initMobileFlag ){
+                            _initController();
+                            _initMobileFlag = false;
+                        } else if ( _window.width() >= 1200 && _initDesktopFlag ) {
+                            _initController();
+                            _initDesktopFlag = false;
+                        };
+
+                    }
+                } );
+
+                _prevMonth.on( {
+                    'click': function() {
+
+                        var activeElem = _monthWrap.find( 'active' )
+
+                        activeElem.prev().addClass( 'active' );
+                        activeElem.removeClass( 'active' );
+
+                    }
+                } );
+
+                _nextMonth.on( {
+                    'click': function() {
+
+                        var activeElem = _monthWrap.find( 'active' )
+
+                        activeElem.next().addClass( 'active' );
+                        activeElem.removeClass( 'active' );
+
                     }
                 } );
 
@@ -615,13 +668,19 @@
                                 locale = "en-us",
                                 month = objDate.toLocaleString(locale, { month: "long" });
 
-                            return $('<div class="timing">' +
-                                '<div>' + _ordinalSuffixOf(xx.getDate()) + ' ' + month + '</div>' +
-                                '<h2>' + event.title + '</h2>' +
-                                '<div>' + event.city + '</div>' +
-                                '<a href="'+ event.url +'">+</a>' +
-                                '</div>');
+                            return $('<a href="'+ event.url +'" class="schedule__track">' +
+                                '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf(xx.getDate()) + ' ' + month + '</time>' +
+                                '<p><b>' + event.title + '</b></p>' +
+                                '<p><b>' + event.city + '</b></p>' +
+                                '</a>');
+
+                            _prevMonth = _obj.find( '.fc-prev-button' );
+                            _nextMonth = _obj.find( '.fc-next-button' );
+
+                            _onEvents();
+
                         }
+
                     } );
 
             },
@@ -629,7 +688,6 @@
 
                 var flag = true,
                     monthArr = [],
-                    monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
                     setEvents = $.ajax( 'php/events.json' )
                         .done(function( msg ) {
 
@@ -658,33 +716,96 @@
 
                             }
 
-                            for( var i = 0; i <= monthArr.length-1; i++ ) {
-
-                                var lengthMonth = String( monthArr[i][0] ).length,
-                                    numMoth = ( lengthMonth == '1' ) ? ( '0'+ ( monthArr[i][0] + 1 ) ) : monthArr[i][0] + 1;
-
-                                _select.append('<option value="'+ monthArr[i][0] +'"><span>'+ monthNames[monthArr[i][0]] +'</span> '+ monthArr[i][1] +'</option>');
-                                _monthWrap.append('<a href="#" class="schedule__month-item" data-time="'+ monthArr[i][1] +'-'+ numMoth +'-01"><span>'+ monthNames[monthArr[i][0]] +'</span> '+ monthArr[i][1] +'</a>');
-                            }
-
-                            _setEventsBySelect();
-
-                            _select.each( function(){
-                                new WebstersSelect( {
-                                    obj: $( this ),
-                                    optionType: 1,
-                                    showType: 2
-                                } );
-                            } );
-
-                            _monthItem = _obj.find( '.schedule__month-item' );
-
-                            _onEvents();
+                            if ( _window.width() < 1200 ){
+                                _setMobileEvents( monthArr );
+                                _initMobileFlag = false;
+                            } else {
+                                _setDesktopEvents( monthArr );
+                                _initDesktopFlag = false;
+                            };
 
                         } )
                         .fail( function() {
                             alert( 'error' );
                         } );
+
+
+            },
+            _setMobileEvents = function ( monthArr ) {
+
+                for( var i = 0; i <= monthArr.length-1; i++ ) {
+
+                    var lengthMonth = String( monthArr[i][0] ).length,
+                        numMoth = ( lengthMonth == '1' ) ? ( '0'+ ( monthArr[i][0] + 1 ) ) : monthArr[i][0] + 1;
+
+                    _select.append( '<option value="'+ monthArr[i][0] +'"><span>'+ _monthNames[monthArr[i][0]] +'</span> '+ monthArr[i][1] +'</option>' );
+
+                }
+
+                _setEventsBySelect();
+
+                _select.each( function(){
+                    new WebstersSelect( {
+                        obj: $( this ),
+                        optionType: 1,
+                        showType: 2
+                    } );
+                } );
+
+                _onEvents();
+
+            },
+            _setDesktopEvents = function ( monthArr ) {
+
+                var swiper = $( '<div class="swiper-wrapper"></div>' ),
+                    initSwiper = false;
+
+                for( var i = 0; i <= monthArr.length-1; i++ ) {
+
+                    var lengthMonth = String( monthArr[i][0] ).length,
+                        numMoth = ( lengthMonth == '1' ) ? ( '0'+ ( monthArr[i][0] + 1 ) ) : monthArr[i][0] + 1;
+
+                    if ( monthArr.length > 3 ) {
+
+                        swiper.append( '<a href="#" class="schedule__month-item swiper-slide" data-time="'+ monthArr[i][1] +'-'+ numMoth +'-01"><strong>'+ _monthNames[monthArr[i][0]] +'</strong><p>'+ monthArr[i][1] +'</p></a>' );
+
+                        initSwiper = true;
+
+                    } else {
+
+                        _monthWrap.append( '<a href="#" class="schedule__month-item" data-time="'+ monthArr[i][1] +'-'+ numMoth +'-01"><strong>'+ _monthNames[monthArr[i][0]] +'</strong><p>'+ monthArr[i][1] +'</p></a>' );
+
+                    }
+
+                }
+
+                if ( initSwiper ) {
+
+                    _monthWrap.append( swiper );
+
+                    var _scheduleSlider = _obj.find( '.schedule__month' ),
+                        _schedulePrev = _obj.find( '.schedule__button-prev' ),
+                        _scheduleNext = _obj.find( '.schedule__button-next' ),
+                        _schedule;
+
+                    _schedule = new Swiper ( _scheduleSlider, {
+                        autoplay: false,
+                        speed: 500,
+                        effect: 'slide',
+                        slidesPerView: 3,
+                        spaceBetween: 18,
+                        loop: false,
+                        prevButton: _schedulePrev,
+                        nextButton: _scheduleNext
+                    } );
+
+                }
+
+                _monthItem = _obj.find( '.schedule__month-item' );
+                _monthItem.eq( 0 ).addClass( 'active' );
+
+                _initCalendar();
+                _onEvents();
 
             },
             _setEventsBySelect = function () {
@@ -711,7 +832,7 @@
                                         month = objDate.toLocaleString(locale, { month: "long" } );
 
                                     _eventWrap.append( '<li class="schedule__frame-li"><a href="'+ this.url +'" class="schedule__track">' +
-                                        '<time datetime="2016-05-15T7:00" class="schedule__track-time">' + _ordinalSuffixOf( xx.getDate() ) + ' ' + month + '</time>' +
+                                        '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf( xx.getDate() ) + ' ' + month + '</time>' +
                                         '<p><b>' + this.title + '</b></p>' +
                                         '<p><b>' + this.city + '</b></p>' +
                                         '</a></li>'
@@ -742,7 +863,6 @@
                 return i + "th";
             },
             _constuctor = function () {
-                _initCalendar();
                 _initController();
             };
 
