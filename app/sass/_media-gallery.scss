@@ -35,6 +35,10 @@
     .swiper-wrapper {
 
     }
+  }
+  &__inner {
+    position: relative;
+
     .swiper-button-next,
     .swiper-button-prev{
       position: absolute;
@@ -308,6 +312,7 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;
+      transform: none !important;
     }
     &__item {
       padding-bottom: 32%;
@@ -317,6 +322,8 @@
     }
     &__cover {
       margin: 0 0 51px;
+    }
+    &__inner {
 
       .swiper-button-prev,
       .swiper-button-next {
@@ -410,7 +417,6 @@
 
         &:before {
           opacity: 1;
-
         }
         .media-gallery__item-title {
           visibility: visible;

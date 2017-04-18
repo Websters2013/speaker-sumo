@@ -17,6 +17,7 @@
         var _self = this,
             _obj = obj,
             _wrapper = _obj.find( '.media-gallery__wrap' ),
+            _innerWrapper = _obj.find( '.media-gallery__inner' ),
             _cover = _obj.find( '.media-gallery__cover' ),
             _btnCheck = _obj.find( '.media-gallery__check' ),
             _galleryItemClass = null,
@@ -27,8 +28,8 @@
             _request = new XMLHttpRequest(),
             _firstGroup = true,
             _swiper = null,
-            _swiperNextBtn = _cover.find( '.swiper-button-next' ),
-            _swiperPrevBtn = _cover.find( '.swiper-button-prev' ),
+            _swiperNextBtn = _innerWrapper.find( '.swiper-button-next' ),
+            _swiperPrevBtn = _innerWrapper.find( '.swiper-button-prev' ),
             _switcherType = _obj.attr( 'data-loaded-type' ),
             _btnCheckClick = false;
 
@@ -138,25 +139,19 @@
 
                         if ( _window.width() < 768 && !_swiper ) {
 
-                            console.log('_window.width() < 768 && !_swiper');
-
                             _destroyGallery();
                             _initSwiper();
 
 
                         } else if ( _window.width() >= 768 && _swiper ) {
 
-                            console.log('_window.width() >= 768 && _swiper');
-
                             _swiper.destroy();
                             _swiper = null;
                             _initGallery();
 
                         }
-
                     }
                 } );
-
             },
             _destroyGallery = function() {
 
@@ -271,7 +266,7 @@
 
                                 if ( _swiper ) {
 
-                                    _swiper.destroy();
+                                    _swiper.destroy(true, true);
                                     _swiper = null;
 
                                 }
