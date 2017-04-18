@@ -90,7 +90,22 @@
     }
 
   }
+}
 
+.all-books {
+  width: 100%;
+  max-width: 1210px;
+  margin: 0 auto -7px;
+  padding: 42px 15px 0;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+  .books__item {
+    margin: 0 29px 48px;
+  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -131,6 +146,14 @@
       left: 3px;
     }
 
+  }
+
+  .all-books {
+    margin: 0 auto -16px;
+
+    .books__item {
+      margin: 0 14px 102px;
+    }
   }
 
 }
@@ -204,6 +227,14 @@
 
   }
 
+  .all-books {
+    margin: 0 auto -22px;
+    padding: 79px 15px 0;
+
+    .books__item {
+      margin: 0 29px 104px;
+    }
+  }
 }
 
 

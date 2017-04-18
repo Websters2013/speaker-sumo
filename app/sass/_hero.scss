@@ -63,6 +63,24 @@
 
 }
 
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 235px;
+  padding: 61px 15px 20px;
+  background: $main-yellow-color_2;
+
+  &__title {
+    font-size: 38px;
+    line-height: 56px;
+    letter-spacing: -1.8px;
+    text-transform: uppercase;
+    color: $main-white-color;
+    @include oswald-bold();
+  }
+}
+
 @media (min-width: $tablet-portrait) {
 
   .hero{
@@ -98,6 +116,10 @@
 
   }
 
+  .hero-inner {
+    min-height: 284px;
+    padding: 75px 15px 0;
+  }
 }
 
 @media (min-width: $desktop) {
@@ -120,6 +142,10 @@
 
   }
 
+  .hero-inner {
+    min-height: 293px;
+    padding: 80px 15px 0;
+  }
 }
 
 
