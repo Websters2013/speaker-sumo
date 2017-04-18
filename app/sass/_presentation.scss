@@ -36,13 +36,6 @@
     background: $main-white-color;
     text-align: center;
     overflow: hidden;
-
-    &:first-child {
-      margin-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
   }
 
   &__item-title {
@@ -177,6 +170,7 @@
 @media (min-width: $desktop) {
 
   .presentation {
+    padding-bottom: 77px;
 
     &__title i{
       margin-bottom: 19px;
@@ -184,13 +178,18 @@
 
     &__list {
       width: 100%;
-      max-width: 1216px;
+      max-width: 1230px;
 
       & > div{
-        justify-content: space-between;
+        flex-flow: row wrap;
+        justify-content: center;
         align-items: stretch;
       }
 
+    }
+
+    &__item{
+      margin: 0 5px 20px;
     }
 
     &__item-list {
