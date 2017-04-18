@@ -286,11 +286,11 @@
 
                         } else if ( _window.width() >= 1200 && _initFlag ) {
 
-                            $( '.presentation__list' )[0].swiper.destroy( true, true );
-                            $( '.books__list' )[0].swiper.destroy(true, true);
-                            $( '.blog__list' )[0].swiper.destroy(true, true);
-                            $( '.posts__list' )[0].swiper.destroy(true, true);
-                            $( '.past__list' )[0].swiper.destroy(true, true);
+                            _presentation.destroy( true, true );
+                            _books.destroy(true, true);
+                            _blog.destroy(true, true);
+                            _post.destroy(true, true);
+                            _past.destroy(true, true);
 
                             _initFlag = false;
 
