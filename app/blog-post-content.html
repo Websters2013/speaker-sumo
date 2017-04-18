@@ -10,7 +10,7 @@
     <title>Blog Post Content</title>
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/blog-content-page.css">
 
 </head>
 <body>
@@ -128,11 +128,165 @@
         <div class="hero-inner">
 
             <!--hero-inner__title-->
-            <h1 class="hero-inner__title">blog post title</h1>
+            <h1 class="hero-inner__title hero-inner__title_2">blog post title</h1>
             <!--/hero-inner__title-->
+
+            <!--hero-inner__footer-->
+            <div class="hero-inner__footer">
+
+                <!--hero-inner__footer-item-->
+                <time class="hero-inner__footer-item" datetime="2016-11-26">
+                    26 TUESDAY, 2016
+                </time>
+                <!--/hero-inner__footer-item-->
+
+            </div>
+            <!--/hero-inner__footer-->
 
         </div>
         <!--/hero-inner-->
+
+        <!--site__content-->
+        <main class="site__content">
+
+            <!--blog-content-->
+            <div class="blog-content">
+
+                <!--blog-content__text-->
+                <div class="blog-content__text">
+
+                    <!--blog-content__text-item-->
+                    <p class="blog-content__text-item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies condimentum tristique.
+                        Sed quis urna velit. Aliquam suscipit dapibus molestie. Nam auctor, risus et
+                        varius dapibus, lorem leo dapibus nulla, id elementum tellus purus vitae augue.
+                    </p>
+                    <!--/blog-content__text-item-->
+
+                    <!--blog-content__text-item-->
+                    <p class="blog-content__text-item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies condimentum tristique.
+                        Sed quis urna velit. Aliquam suscipit dapibus molestie.
+                    </p>
+                    <!--/blog-content__text-item-->
+
+                    <!--blog-content__text-item-->
+                    <p class="blog-content__text-item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus
+                        hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh
+                        porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis
+                        nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor
+                        posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at
+                        risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus
+                        condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
+                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo,
+                        eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur
+                        vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas.
+                    </p>
+                    <!--/blog-content__text-item-->
+
+                </div>
+                <!--/blog-content__text-->
+
+                <!--blog-content__comments-->
+                <div class="blog-content__comments">
+
+                    <!--blog-content__comments-item-->
+                    <div class="blog-content__comments-item">
+
+                        <!--blog-content__comments-ava-->
+                        <div class="blog-content__comments-ava" style="background-image: url('pic/ava-pic.jpg')"></div>
+                        <!--/blog-content__comments-ava-->
+
+                        <!--blog-content__comments-head-->
+                        <div class="blog-content__comments-head">
+
+                            <strong>Author: Joan Doe</strong>
+                            <strong>Title of the comment</strong>
+
+                        </div>
+                        <!--/blog-content__comments-head-->
+
+                        <!--blog-content__comments-text-->
+                        <p class="blog-content__comments-text">
+                            I'm a designer and house music lover living in the UK. I work at Automattic; the people who
+                            make WordPress.com, Jetpack, and a whole bunch of cool stuff.
+                        </p>
+                        <!--/blog-content__comments-text-->
+
+                        <!--blog-content__comments-link-->
+                        <a href="#" class="blog-content__comments-link">
+                            www.yourwebsite.com
+                        </a>
+                        <!--/blog-content__comments-link-->
+
+                        <!--blog-content__comments-date-->
+                        <time datetime="2016-04-03" class="blog-content__comments-date">3rd April, 11:45</time>
+                        <!--/blog-content__comments-date-->
+
+                    </div>
+                    <!--/blog-content__comments-item-->
+
+                </div>
+                <!--/blog-content__comments-->
+
+                <!--blog-content__contact-->
+                <div class="blog-content__contact">
+
+                    <!--blog-content__contact-title-->
+                    <h2 class="blog-content__contact-title">Leave a Reply</h2>
+                    <!--/blog-content__contact-title-->
+
+                    <!--blog-content__contact-text-->
+                    <p class="blog-content__contact-text">
+                        Your email address will not be published. Required fields are marked *
+                    </p>
+                    <!--/blog-content__contact-text-->
+
+                    <!--blog-content__contact-form-->
+                    <form action="#" class="blog-content__contact-form">
+
+                        <fieldset>
+
+                            <label for="comment">Comment</label>
+                            <textarea id="comment"></textarea>
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <label class="required" for="name">Name</label>
+                            <input id="name" type="text">
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <label class="required" for="email">Email</label>
+                            <input id="email" type="email">
+
+                        </fieldset>
+
+                        <fieldset>
+
+                            <label for="website">Website</label>
+                            <input id="website" type="text">
+
+                        </fieldset>
+
+                        <button type="submit" class="btn btn_7">post comment</button>
+
+                    </form>
+                    <!--/blog-content__contact-form-->
+
+                </div>
+                <!--/blog-content__contact-->
+
+            </div>
+            <!--/blog-content-->
+
+        </main>
+        <!--/site__content-->
 
         <!-- site__footer -->
         <footer class="site__footer">

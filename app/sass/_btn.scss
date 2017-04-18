@@ -71,6 +71,15 @@
     font-size: 20px;
     @include asap-bold();
   }
+  &_7 {
+    min-width: 180px;
+    height: 54px;
+    background: $main-yellow-color_1;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+    color: $main-black-color;
+    font-size: 20px;
+    @include asap-bold();
+  }
 }
 
 @media (min-width: $tablet-portrait) {
@@ -115,8 +124,13 @@
       height: 65px;
       font-size: 20px;
     }
+    &_7 {
+      min-width: 184px;
+      height: 54px;
+      font-size: 18px;
+      line-height: 19px;
+    }
   }
-
 }
 
 @media (min-width: $tablet-landscape) {
