@@ -131,6 +131,7 @@
 @media (min-width: $desktop) {
 
   .testimonials {
+    padding-bottom: 55px;
 
     &__subtitle{
       margin-bottom: 72px;
@@ -150,6 +151,7 @@
       width: 48.2%;
       max-width: 590px;
       margin-right: 20px;
+      margin-bottom: 20px;
       -webkit-transition: background-color .3s ease;
       transition: background-color .3s ease;
 
@@ -163,6 +165,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      max-width: 555px;
+      margin: 0 auto;
     }
 
   }
