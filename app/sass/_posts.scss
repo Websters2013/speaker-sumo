@@ -178,7 +178,7 @@
     &__list{
       width: 1148px;
       margin: 0 auto;
-      padding: 20px 20px 16px;
+      padding: 20px 20px 0;
 
       & > div{
         flex-flow: row wrap;
@@ -193,6 +193,7 @@
     &__item{
       width: 350px;
       margin-right: 23px;
+      margin-bottom: 16px;
       @include transition( box-shadow, .2, 0 );
 
       &:hover {

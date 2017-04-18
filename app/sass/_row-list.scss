@@ -1,0 +1,47 @@
+.row-list li{
+  margin-bottom: 49px;
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .row-list {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: stretch;
+
+    li{
+      width: 50%;
+      padding: 0 15px;
+    }
+
+    &_4{
+      max-width: 559px;
+      margin: 0 auto;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .row-list {
+
+    li{
+      width: 33%;
+      padding: 0 15px;
+    }
+
+    &_4 {
+      max-width: 100%;
+
+      li{
+        width: 25%;
+      }
+
+    }
+
+  }
+
+}

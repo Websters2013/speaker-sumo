@@ -47,9 +47,11 @@
   .social {
 
     &__item{
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
 
       &:hover{
-
+        background-color: #f7bb6c;
       }
 
     }

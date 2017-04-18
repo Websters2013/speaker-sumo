@@ -3,7 +3,7 @@
   @include justify-content(center);
   @include align-items(center);
   height: 31px;
-  padding: 0 23px;
+  padding: 0 0;
   border: none;
   background: #f7b518;
   color: #000;
@@ -13,11 +13,6 @@
   text-transform: uppercase;
   -webkit-transition:  background-color .3s ease,  color .3s ease;
   transition: background-color .3s ease,  color .3s ease;
-
-  &:hover {
-    background: #fff;
-    color: #f98f01;
-  }
 
   &_2 {
     min-width: 150px;
@@ -71,6 +66,7 @@
     font-size: 20px;
     @include asap-bold();
   }
+
   &_7 {
     min-width: 180px;
     height: 54px;
@@ -80,6 +76,83 @@
     font-size: 20px;
     @include asap-bold();
   }
+
+  &_11{
+    display: flex;
+    height: 55px;
+    max-width: 256px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #f7b518;
+    color: #000!important;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
+  &_12{
+    display: flex;
+    height: 53px;
+    max-width: 243px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    color: #fff!important;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
+  &_13{
+    display: flex;
+    height: 55px;
+    max-width: 256px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #000;
+    color: #fff!important;
+    background-color: #000;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
+  &_14{
+    display: flex;
+    height: 53px;
+    max-width: 243px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #555;
+    color: #435a65!important;
+    background-color: #fff;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
+  &_15{
+    display: flex;
+    height: 70px;
+    max-width: 270px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #f7b518;
+    color: #000!important;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
+  &_16{
+    display: flex;
+    height: 53px;
+    max-width: 243px;
+    margin: 0 auto 24px;
+    padding: 0;
+    border: 1px solid #000;
+    color: #fff!important;
+    background-color: #fff;
+    @include asap-bold;
+    font-size: 23px;
+  }
+
 }
 
 @media (min-width: $tablet-portrait) {
@@ -124,18 +197,50 @@
       height: 65px;
       font-size: 20px;
     }
+
     &_7 {
       min-width: 184px;
       height: 54px;
       font-size: 18px;
       line-height: 19px;
     }
+
+    &_11{
+      height: 55px;
+    }
+
+    &_12{
+      height: 53px;
+    }
+
+    &_13{
+      height: 55px;
+    }
+
+    &_14{
+      height: 53px;
+    }
+
+    &_15{
+      height: 70px;
+    }
+
+    &_16{
+      height: 53px;
+    }
+
   }
+
 }
 
 @media (min-width: $tablet-landscape) {
 
   .btn {
+
+    &:hover {
+      background: #fff;
+      color: #f98f01;
+    }
 
     &_2 {
       min-width: 150px;
@@ -146,6 +251,16 @@
 
     &_5{
       font-size: 24px;
+    }
+
+    &_12:hover,
+    &_13:hover{
+      color: #000!important;
+    }
+
+    &_14:hover{
+      background-color: #555;
+      color: #000!important;
     }
 
   }

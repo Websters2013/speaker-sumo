@@ -144,7 +144,7 @@
       align-items: stretch;
       max-width: 1233px;
       margin-bottom: 31px;
-      padding-left: 13px;
+      padding-left: 20px;
     }
 
     &__item{
@@ -167,6 +167,11 @@
       align-items: center;
       max-width: 555px;
       margin: 0 auto;
+
+      > *{
+        margin: 0 3px;
+      }
+
     }
 
   }
