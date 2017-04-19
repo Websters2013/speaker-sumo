@@ -568,6 +568,7 @@
     var Schedule = function( obj ) {
 
         var _obj = obj,
+            _link = _obj.data( 'link' ),
             _select = _obj.find( '.schedule-dates' ),
             _calendar = _obj.find( '#calendar' ),
             _eventWrap = _obj.find( '.schedule__venue-frame' ),
@@ -735,7 +736,7 @@
 
                 var flag = true,
                     monthArr = [],
-                    setEvents = $.ajax( 'php/events.json' )
+                    setEvents = $.ajax( _link )
                         .done(function( msg ) {
 
                             $( msg ).each(function() {
@@ -862,7 +863,7 @@
             _setEventsBySelect = function () {
 
                 var valueMonth = _select.find( 'option:selected' ).val(),
-                    setEvents = $.ajax( 'php/events.json' )
+                    setEvents = $.ajax( _link )
                         .done(function( msg ) {
 
                             _eventWrap.empty();
