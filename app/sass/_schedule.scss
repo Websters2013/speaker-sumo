@@ -132,6 +132,17 @@
 
       }
 
+      &_empty:hover{
+        border-left-color: transparent;
+        background-color: #fff;
+        color: transparent;
+
+        &:after{
+          display: none;
+        }
+
+      }
+
     }
 
     &__title{
