@@ -426,6 +426,10 @@
     margin: 0 auto;
   }
 
+  &__menu-btn{
+    padding: 0 23px!important;
+  }
+
 }
 
 @media (min-width: $phone-landscape) {

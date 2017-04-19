@@ -49,6 +49,12 @@
       line-height: 19px;
     }
 
+    &_empty{
+      border-left: none;
+      background: repeating-linear-gradient(-45deg, #f3f3f3, #f3f3f3 1px, transparent 1px, transparent 4px);
+      background-color: #fff;
+    }
+
   }
 
   &__month{

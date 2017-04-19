@@ -185,31 +185,39 @@
             _blogSlider = _obj.find( '.blog__list' ),
             _postSlider = _obj.find( '.posts__list' ),
             _pastSlider = _obj.find( '.past__list' ),
-            _scheduleSlider = _obj.find( '.schedule__month' ),
+            _heroSlider = _obj.find( '.hero__slider' ),
             _presentationPrev = _obj.find( '.presentation__button-prev' ),
             _booksPrev = _obj.find( '.books__button-prev' ),
             _blogPrev = _obj.find( '.blog__button-prev' ),
             _postPrev = _obj.find( '.posts__button-prev' ),
             _pastPrev = _obj.find( '.past__button-prev' ),
-            _schedulePrev = _obj.find( '.schedule__button-prev' ),
+            _heroPrev = _obj.find( '.hero__button-prev' ),
             _presentationNext = _obj.find( '.presentation__button-next' ),
             _booksNext = _obj.find( '.books__button-next' ),
             _blogNext = _obj.find( '.blog__button-next' ),
             _postNext = _obj.find( '.posts__button-next' ),
             _pastNext = _obj.find( '.past__button-next' ),
-            _scheduleNext = _obj.find( '.schedule__button-next' ),
+            _heroNext = _obj.find( '.hero__button-next' ),
             _books,
             _blog,
             _post,
             _past,
             _presentation,
-            _schedule,
+            _hero,
             _initFlag = false;
 
         //private methods
         var _initSlider = function() {
 
-
+                _hero = new Swiper ( _heroSlider, {
+                    autoplay: false,
+                    speed: 500,
+                    effect: 'slide',
+                    slidesPerView: 1,
+                    loop: false,
+                    prevButton: _heroPrev,
+                    nextButton: _heroNext
+                } );
 
                 if ( _window.width() >= 1200  || _initFlag ) {
                     return false
@@ -704,11 +712,19 @@
                                 locale = "en-us",
                                 month = objDate.toLocaleString(locale, { month: "long" });
 
-                            return $('<a href="'+ event.url +'" class="schedule__track">' +
-                                '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf(xx.getDate()) + ' ' + month + '</time>' +
-                                '<p><b>' + event.title + '</b></p>' +
-                                '<p><b>' + event.city + '</b></p></a>'
-                            );
+                            if ( event.title == '' ){
+
+                                return $('<span class="schedule__track schedule__track_empty"></span>');
+
+                            } else {
+
+                                return $('<a href="'+ event.url +'" class="schedule__track">' +
+                                    '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf(xx.getDate()) + ' ' + month + '</time>' +
+                                    '<p><b>' + event.title + '</b></p>' +
+                                    '<p><b>' + event.city + '</b></p></a>'
+                                );
+
+                            }
 
                         }
 
@@ -866,12 +882,17 @@
                                         locale = "en-us",
                                         month = objDate.toLocaleString(locale, { month: "long" } );
 
-                                    _eventWrap.append( '<li class="schedule__frame-li"><a href="'+ this.url +'" class="schedule__track">' +
-                                        '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf( xx.getDate() ) + ' ' + month + '</time>' +
-                                        '<p><b>' + this.title + '</b></p>' +
-                                        '<p><b>' + this.city + '</b></p>' +
-                                        '</a></li>'
-                                    );
+
+                                    if ( this.title != '' ){
+
+                                        _eventWrap.append( '<li class="schedule__frame-li"><a href="'+ this.url +'" class="schedule__track">' +
+                                            '<time datetime="'+ xx.getFullYear() +'-'+ xx.getMonth() +'-'+ xx.getDate() +'" class="schedule__track-time">' + _ordinalSuffixOf( xx.getDate() ) + ' ' + month + '</time>' +
+                                            '<p><b>' + this.title + '</b></p>' +
+                                            '<p><b>' + this.city + '</b></p>' +
+                                            '</a></li>'
+                                        );
+
+                                    }
 
                                 }
 

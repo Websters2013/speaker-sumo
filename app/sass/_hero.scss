@@ -41,6 +41,8 @@
     height: 100%;
     padding-bottom: 40px;
     padding-top: 100px;
+    z-index: 2;
+    pointer-events: none;
   }
 
   &__content {
@@ -57,6 +59,56 @@
     p {
       margin: 0 0 44px;
       letter-spacing: .5px;
+    }
+
+  }
+
+  &__video{
+    width: 300px;
+    margin: 15px auto 0;
+
+    iframe{
+      width: 100%;
+    }
+
+  }
+
+  &__button-prev,
+  &__button-next{
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 80px;
+    background-color: rgba(0,0,0,.24);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2;
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: 45%;
+      left: 6px;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid #fff;
+      border-left: 1px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+  }
+
+  &__button-prev{
+    left: 10px;
+  }
+
+  &__button-next{
+    right: 10px;
+
+    &:before{
+      left: 3px;
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
     }
 
   }
@@ -87,24 +139,32 @@
     }
   }
   &__footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
-    -webkit-transform: translateY(50%);
-    transform: translateY(50%);
+    position: absolute;
+    top: calc( 100% - 25px );
+    left: 0;
+    width: 100%;
   }
   &__footer-item {
     min-width: 238px;
+    margin: 0 5px 25px;
     background: $main-white-color;
     box-shadow: 0 0 20px 0 rgba(159, 159, 159, 0.8);
     font-size: 16px;
     line-height: 54px;
     color: $main-black-color;
     text-align: center;
-    @include asap-bold()
+    @include asap-bold();
+
+    i{
+      position: relative;
+      top: -1px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
   }
 }
 
@@ -139,12 +199,22 @@
       font-size: 54px;
       line-height: 62px;
     }
+
+    &__video{
+      margin: 15px 0 0;
+    }
+
   }
 
   .hero-inner {
     min-height: 284px;
+    margin-bottom: 0;
     padding: 75px 15px 0;
   }
+  &__footer-item {
+    margin: 0 5px;
+  }
+
 }
 
 @media (min-width: $desktop) {
@@ -158,11 +228,27 @@
     }
 
     &__layout {
-      padding-bottom: 137px;
+      align-items: flex-start;
+      padding-top: 192px;
+      padding-bottom: 40px;
     }
 
     &__content{
       max-width: 924px;
+    }
+
+    &__video{
+      width: 482px;
+
+      iframe{
+        height: 272px;
+      }
+
+    }
+
+    &__button-prev,
+    &__button-next{
+      cursor: pointer;
     }
 
   }
@@ -171,6 +257,7 @@
     min-height: 293px;
     padding: 80px 15px 0;
   }
+
 }
 
 

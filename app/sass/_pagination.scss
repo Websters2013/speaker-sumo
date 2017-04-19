@@ -1,0 +1,61 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @include asap-bold;
+  font-size: 18px;
+
+  &__item{
+    margin: 0 3px;
+    padding: 0 3px;
+    color: #000;
+
+    &.active{
+      color: #b3b3b3;
+    }
+
+    &-prev{
+      position: relative;
+      top: -2px;
+      margin-right: 8px;
+    }
+
+    &-next{
+      position: relative;
+      top: -2px;
+      margin-left: 8px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .pagination {
+
+  }
+
+}
+@media (min-width: $desktop) {
+
+  .pagination {
+
+    &__item{
+
+      &:hover{
+        text-decoration: underline;
+      }
+
+      &.active:hover{
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+}
+
+
