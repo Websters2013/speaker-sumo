@@ -35,7 +35,6 @@ var paths = {
     fonts: 'app/fonts/**/*'
 };
 
-
 gulp.task('clean', function (cb) {
     return del('dist', cb);
 });
