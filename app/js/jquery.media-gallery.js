@@ -341,8 +341,6 @@
 
                         if ( swiper.isEnd ) {
 
-                            console.log('_loadNewItems');
-
                             _loadNewItems();
 
                         }
