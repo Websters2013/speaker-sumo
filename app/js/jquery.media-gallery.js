@@ -36,6 +36,7 @@
         var _addGalleryContent = function( msg ){
 
                 var hasItems = msg.has_items,
+                    wrapperHeight = _innerWrapper.innerHeight(),
                     path = null,
                     newBlock = null;
 
@@ -75,19 +76,11 @@
 
                 if ( _window.width() < 768 ) {
 
-                    setTimeout( function() {
-
-                        _initSwiper()
-
-                    }, 10 );
+                    _initSwiper();
 
                 } else {
 
-                    setTimeout( function() {
-
-                        _initGallery();
-
-                    }, 10 );
+                    _initGallery();
                 }
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
@@ -279,9 +272,9 @@
                             _cover.height( _cover.height() );
                         }
 
-                        if ( _obj.attr( 'data-loaded-group' ) != 0 ){
+                        if ( _obj.attr( 'data-loaded-group' ) !== 0 ){
 
-                            if ( _window.width() > 768 ) {
+                            if ( _window.width() >= 768 && _isGallery ) {
 
                                 _destroyGallery();
 

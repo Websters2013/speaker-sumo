@@ -108,6 +108,7 @@
     .logo {
       position: relative;
       display: inline-block;
+      left: auto;
     }
   }
   &__footer-layout {
@@ -582,8 +583,10 @@
               transform: translateX(-50%) translateY(0);
 
               .sub-menu {
-                -webkit-transform: translateX(0) translateY(0);
-                transform: translateX(0) translateY(0);
+                -webkit-transform: translateX(0) translateY(14px);
+                transform: translateX(0) translateY(14px);
+                top: auto !important;
+                margin-bottom: 0;
               }
             }
           }
