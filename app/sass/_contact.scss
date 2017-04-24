@@ -68,16 +68,20 @@
   .contact-us {
     padding: 82px 0 54px;
 
+    .site__form-captcha {
+      margin-top: -6px;
+      margin-bottom: 32px;
+    }
     p {
       display: block;
-      margin-bottom: 41px;
+      margin-bottom: 40px;
       font-size: 18px;
       color: $main-black-color;
       line-height: 24px;
       @include asap-regular();
     }
     &__title {
-      margin-bottom: 32px;
+      margin-bottom: 33px;
     }
     &__content {
       margin-bottom: 54px;
@@ -99,7 +103,7 @@
       }
     }
     &__form {
-      margin: 0 0 86px;
+      margin: 0 0 85px;
     }
   }
 }
@@ -121,15 +125,15 @@
       }
     }
     &__form {
-      margin-bottom: 85px;
+      margin-bottom: 86px;
     }
     &__address {
 
       > dl {
-        width: 9.8%;
+        width: 9.4%;
 
         &:last-child {
-          margin-left: 115px;
+          margin-left: 123px;
         }
         dt {
           margin-bottom: 4px;
