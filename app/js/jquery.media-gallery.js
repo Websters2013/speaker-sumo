@@ -31,7 +31,8 @@
             _swiperNextBtn = _innerWrapper.find( '.swiper-button-next' ),
             _swiperPrevBtn = _innerWrapper.find( '.swiper-button-prev' ),
             _switcherType = _obj.attr( 'data-loaded-type' ),
-            _btnCheckClick = false;
+            _btnCheckClick = false,
+            _preloader = _obj.find( '.preloader' );
 
         var _addGalleryContent = function( msg ){
 
@@ -84,6 +85,8 @@
                 }
 
                 _obj.attr( 'data-loaded-group', +_obj.attr( 'data-loaded-group' )+1 );
+
+                _preloader.removeClass( 'active' );
             },
             _addEvents = function () {
 
@@ -256,6 +259,8 @@
                 }else{
                     path = _btnAction
                 }
+
+                _preloader.addClass( 'active' );
 
                 _request.abort();
                 _request = $.ajax({
