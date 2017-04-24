@@ -7,6 +7,7 @@ Location = function (obj) {
     //private properties
     var _self = this,
         _obj = obj,
+        _link = _obj.data( 'link' ),
         _lat = _obj.attr('data-lat'),
         _lng = _obj.attr('data-lng'),
         _myLatLng = {lat: parseFloat(_lat), lng: parseFloat(_lng)},
@@ -64,44 +65,51 @@ Location = function (obj) {
         },
         _getLocations = function (map, zoomValue, data, container) {
 
-            _self.data = data || JSON.parse(_obj.attr('data-map')).locations;
+            $.ajax( _link ).done( function( msg ) {
 
-            jQuery.each(_self.data, function (i) {
+                _self.data = data || msg.locations;
 
-                var curLatLng = new google.maps.LatLng(this.coordinates[ 0 ], this.coordinates[ 1 ]);
-                _self.bounds.extend(curLatLng);
-                var place = new google.maps.Marker({
-                    position: curLatLng,
-                    map: map,
-                    icon: {
-                        url: this.icon,
-                        size: new google.maps.Size(40, 47),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(20, 59)
-                    },
-                    title: this.title
+                jQuery.each( _self.data, function (i) {
+
+                    var curLatLng = new google.maps.LatLng(this.coordinates[ 0 ], this.coordinates[ 1 ]);
+                    _self.bounds.extend(curLatLng);
+                    var place = new google.maps.Marker({
+                        position: curLatLng,
+                        map: map,
+                        icon: {
+                            url: this.icon,
+                            size: new google.maps.Size(40, 47),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(20, 59)
+                        },
+                        title: this.title
+                    });
+
+                    place.id = this.id;
+                    place.color = this.color;
+                    place.desc = this.description;
+                    if (data !== null) {
+                        place._new = true;
+                    }
+                    place.info = new google.maps.InfoWindow({
+                        content: this.title
+                    });
+
+                    _showAllLocations(this);
+                    container.push(place);
+                    _setInfoWindow(i, place);
+
                 });
 
-                place.id = this.id;
-                place.color = this.color;
-                place.desc = this.description;
-                if (data !== null) {
-                    place._new = true;
-                }
-                place.info = new google.maps.InfoWindow({
-                    content: this.title
-                });
+            } );
 
-                _showAllLocations(this);
-                container.push(place);
-                _setInfoWindow(i, place);
-
-            });
             map.fitBounds(_self.bounds);
+
             var listener = google.maps.event.addListener(map, "idle", function () {
                 map.setZoom(zoomValue);
                 google.maps.event.removeListener(listener);
             });
+
         },
         _hideAllInfo = function () {
             for (var i = 0; i < _self.markers.length; i++) {
