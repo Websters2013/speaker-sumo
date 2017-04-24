@@ -702,8 +702,8 @@
                                 $( '#script-warning' ).show();
                             }
                         },
-                        loading: function( bool ) {
-                            $('#loading').toggle( bool );
+                        loading: function() {
+                            $('.schedule .preloader').addClass( 'active' );
                         },
                         eventRender: function( event, element, view ) {
 
@@ -722,6 +722,8 @@
 
                                 return $('<span class="schedule__track schedule__track_empty"></span>');
 
+                                $('.schedule .preloader').removeClass( 'active' );
+
                             } else {
 
                                 return $('<a href="'+ event.url +'" class="schedule__track">' +
@@ -729,6 +731,8 @@
                                     '<p><b>' + event.title + '</b></p>' +
                                     '<p><b>' + event.city + '</b></p></a>'
                                 );
+
+                                $('.schedule .preloader').removeClass( 'active' );
 
                             }
 
