@@ -191,8 +191,15 @@
         margin: 5px 0 39px;
       }
     }
-  }
 
+    .to-right {
+      padding-left: 23px;
+
+      label {
+        margin-left: -15px;
+      }
+    }
+  }
 }
 
 @media (min-width: $desktop) {
