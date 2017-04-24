@@ -309,6 +309,11 @@
 
             },
             _constructor = function() {
+
+                if( _obj.find( '.swiper-wrapper' ).length == 0 ){
+                    return false
+                }
+
                 _initSlider();
                 _onEvent();
             };

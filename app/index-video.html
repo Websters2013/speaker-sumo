@@ -130,11 +130,11 @@
     <!-- hero -->
     <div class="hero">
 
-        <picture>
-            <source srcset="pic/hero-desktop-big.jpg"  media="(min-width: 1200px)" />
-            <source srcset="pic/hero-tablet.jpg"  media="(min-width: 768px)" />
-            <img src="pic/hero-mobile.jpg" alt="" />
-        </picture>
+        <video autoplay poster="pic/hero-desktop.jpg">
+            <source src="files/video-promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            <source src="files/video-promo.webm" type='video/webm; codecs="vp8, vorbis"' />
+            <source src="files/video-promo.ogv" type='video/ogg; codecs="theora, vorbis"' />
+        </video>
 
         <!-- hero__layout -->
         <div class="hero__layout">
@@ -147,10 +147,6 @@
                 <p>Aenean eu leo quam. Pellentesque ornare sem lacia quam venenatis vestibulum. Praesent commodo
                     magna, vel scelerisque nisl consectetur et.</p>
                 <a href="#" class="btn btn_3">GET IN TOUCH</a>
-
-                <div class="hero__video">
-                    <iframe src="https://www.youtube.com/embed/VYsHhzlleMI" frameborder="0" allowfullscreen></iframe>
-                </div>
 
             </div>
             <!-- /hero__content -->
