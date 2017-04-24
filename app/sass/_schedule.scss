@@ -222,6 +222,11 @@
       position: relative;
       max-width: 1057px;
       margin-bottom: 51px;
+
+      &.loading{
+        background-color: #000;
+      }
+
     }
 
     &__btn-wrap{
