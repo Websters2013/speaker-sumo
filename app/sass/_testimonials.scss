@@ -1,6 +1,7 @@
 .testimonials {
   padding: 38px 0 46px;
   background-color: #e6e6e6;
+  text-align: center;
 
   &__title {
     margin-bottom: 51px;
@@ -35,6 +36,7 @@
   &__item{
     margin-bottom: 20px;
     background-color: #fff;
+    color: #000;
     font-size: 16px;
     line-height: 21px;
   }
