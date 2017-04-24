@@ -32,6 +32,7 @@ var paths = {
     images: 'app/img/**/*',
     pictures: 'app/pic/**/*',
     php: 'app/php/**/*',
+    files: 'app/files/**/*',
     fonts: 'app/fonts/**/*'
 };
 
@@ -75,6 +76,12 @@ gulp.task('php', function () {
     return gulp.src(paths.php, {
         base: 'app/php'
     }).pipe(gulp.dest('dist/php'));
+});
+
+gulp.task('files', function () {
+    return gulp.src(paths.files, {
+        base: 'app/files'
+    }).pipe(gulp.dest('dist/files'));
 });
 
 gulp.task('styles', function () {
@@ -122,7 +129,7 @@ gulp.task('watch', function() {
 });
 
 function serve() {
-    return run('styles', 'scripts', 'vendorScripts', 'vendorStyles', 'php', 'fonts',  'images', 'pictures', 'views', 'serve');
+    return run('styles', 'scripts', 'vendorScripts', 'vendorStyles', 'php', 'files', 'fonts',  'images', 'pictures', 'views', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());
