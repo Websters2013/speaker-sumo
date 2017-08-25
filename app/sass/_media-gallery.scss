@@ -313,11 +313,12 @@
       flex-flow: row wrap;
       justify-content: space-around;
       transform: none !important;
+      margin: 0 auto;
     }
     &__item {
       padding-bottom: 32%;
-      width: 33.3% !important;
-      height: auto;
+      width: 379px!important;
+      height: 379px;
       border: 6px solid #e6e6e6;
     }
     &__cover {
@@ -390,7 +391,6 @@
     }
     &__item {
       margin: 0;
-      width: 20% !important;;
       padding-bottom: 18.8%;
       border: 8px solid #e6e6e6;
       box-sizing: border-box;

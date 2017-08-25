@@ -25,7 +25,56 @@
             new Schedule ( $( this ) )
         } );
 
+        $.each($('.hero__video'), function () {
+            new BgVideo($(this));
+        });
+
     } );
+
+    var BgVideo = function (obj) {
+
+        var _self = this,
+            _obj = obj,
+            _window = $(window);
+
+        var _addEvents = function () {
+
+                _window.on({
+                    resize: function () {
+                        _setHeight();
+                    }
+
+                })
+
+            },
+            _setHeight = function () {
+
+                var height = $('.ytplayer-container.background').height() - 10;
+
+                _obj.height(height);
+
+            },
+            _addBgVideo = function () {
+
+                var path = _obj.data('video');
+
+                $('.video-bg').YTPlayer({
+                    videoId: path,
+                    fitToBackground: true,
+                    mute: true
+                });
+            },
+            _init = function () {
+                _addBgVideo();
+                _setHeight();
+                _addEvents();
+                _obj[ 0 ].obj = _self;
+
+            };
+
+        _init();
+
+    };
 
     var SubMenu = function (obj) {
 
@@ -718,11 +767,11 @@
                                 locale = "en-us",
                                 month = objDate.toLocaleString(locale, { month: "long" });
 
+                            $('.schedule .preloader').removeClass( 'active' );
+
                             if ( event.title == '' ){
 
                                 return $('<span class="schedule__track schedule__track_empty"></span>');
-
-                                $('.schedule .preloader').removeClass( 'active' );
 
                             } else {
 
@@ -731,8 +780,6 @@
                                     '<p><b>' + event.title + '</b></p>' +
                                     '<p><b>' + event.city + '</b></p></a>'
                                 );
-
-                                $('.schedule .preloader').removeClass( 'active' );
 
                             }
 
@@ -824,8 +871,6 @@
                     if ( monthArr.length > 3 ) {
 
                         swiper.append( '<a href="#" class="schedule__month-item swiper-slide" data-time="'+ monthArr[i][1] +'-'+ numMoth +'-01"><strong>'+ _monthNames[monthArr[i][0]] +'</strong><p>'+ monthArr[i][1] +'</p></a>' );
-
-
 
                         initSwiper = true;
 

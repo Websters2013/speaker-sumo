@@ -21,6 +21,7 @@ var paths = {
             dist: 'main.min.js',
             contains: [
                 'app/js/jquery.main.js',
+                'app/js/jquery.video.js',
                 'app/js/jquery.map.js',
                 'app/js/jquery.media-gallery.js',
                 'app/js/jquery.websters-select.js',
